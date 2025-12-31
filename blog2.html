@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly | Modern Tech Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./blog2.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./files/logo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home2.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./product.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQs</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./career.html" class="nav-link-desktop">CAREERS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home2.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./product.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQs
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./career.html" class="nav-link-mobile">CAREERS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Main Content Wrapper -->
+    <main>
+      <div class="container">
+        <h1 class="animate-slide-in">STACKLY INSIGHTS & BLOG</h1>
+        <div class="separator animate-slide-in" data-delay="100"></div>
+
+        <section class="blog-list">
+          <!-- Card 1: Image Left (Default) -->
+          <article class="blog-card animate-slide-in" data-delay="200">
+            <div class="card-media">
+              <img
+                src="./files/b1.webp"
+                alt="Abstract image representing AI Ethics"
+              />
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-meta">Dec 2, 2025 | AI & Future</div>
+                <h3>The Ethical Imperative in Generative AI Development</h3>
+                <p>
+                  Exploring the critical frameworks and governance required to
+                  ensure that next-generation generative AI tools are built and
+                  deployed responsibly, minimizing bias and maximizing fairness.
+                </p>
+              </div>
+              <a href="./404.html" class="read-more-btn">Read Article</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Image Left (Now aligned) -->
+          <article class="blog-card animate-slide-in" data-delay="300">
+            <div class="card-media">
+              <img
+                src="./files/b2.webp"
+                alt="Abstract image representing Cloud Security"
+              />
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-meta">Nov 28, 2025 | Cybersecurity</div>
+                <h3>
+                  Zero Trust: The Only Defense in Multi-Cloud Environments
+                </h3>
+                <p>
+                  A deep dive into how implementing a Zero Trust architecture is
+                  no longer optional, but essential for securing distributed
+                  workloads and data across hybrid and multi-cloud platforms.
+                </p>
+              </div>
+              <a href="./404.html" class="read-more-btn">Read Article</a>
+            </div>
+          </article>
+
+          <!-- Card 3: Image Left (Now aligned) -->
+          <article class="blog-card animate-slide-in" data-delay="400">
+            <div class="card-media">
+              <img
+                src="./files/b3.webp"
+                alt="Abstract image representing Blockchain Technology"
+              />
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-meta">Nov 15, 2025 | Fintech</div>
+                <h3>Blockchain Beyond Crypto: Enterprise Use Cases</h3>
+                <p>
+                  Analyzing practical, non-currency applications of distributed
+                  ledger technology (DLT) in supply chain, healthcare, and
+                  digital identity management for large enterprises.
+                </p>
+              </div>
+              <a href="./404.html" class="read-more-btn">Read Article</a>
+            </div>
+          </article>
+
+          <!-- Card 4: Image Left (Now aligned) -->
+          <article class="blog-card animate-slide-in" data-delay="500">
+            <div class="card-media">
+              <img
+                src="./files/b4.webp"
+                alt="Abstract image representing DevOps pipeline"
+              />
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-meta">Oct 30, 2025 | Development</div>
+                <h3>GitOps and the Future of Infrastructure as Code</h3>
+                <p>
+                  How adopting GitOps principles streamlines software delivery,
+                  enhances observability, and standardizes deployment processes
+                  across diverse development teams.
+                </p>
+              </div>
+              <a href="./404.html" class="read-more-btn">Read Article</a>
+            </div>
+          </article>
+
+          <!-- Card 5: Image Left (Default) -->
+          <article class="blog-card animate-slide-in" data-delay="600">
+            <div class="card-media">
+              <img
+                src="./files/b5.webp"
+                alt="Abstract image representing Quantum Computing"
+              />
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-meta">Oct 10, 2025 | Research</div>
+                <h3>
+                  Demystifying Qubit Stability for Enterprise Applications
+                </h3>
+                <p>
+                  An accessible guide to the current challenges in quantum
+                  computing, focusing on achieving stable qubits and predicting
+                  the timeline for commercial viability.
+                </p>
+              </div>
+              <a href="./404.html" class="read-more-btn">Read Article</a>
+            </div>
+          </article>
+
+          <!-- Card 6: Image Left (Now aligned) -->
+          <article class="blog-card animate-slide-in" data-delay="700">
+            <div class="card-media">
+              <img
+                src="./files/b6.webp"
+                alt="Abstract image representing UX/UI Design"
+              />
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-meta">Sep 25, 2025 | Design & Strategy</div>
+                <h3>The ROI of a Proactive UX Audit</h3>
+                <p>
+                  Understanding why investing in frequent, comprehensive UX
+                  audits translates directly into improved user retention,
+                  conversion rates, and reduced support costs for digital
+                  products.
+                </p>
+              </div>
+              <a href="./404.html" class="read-more-btn">Read Article</a>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <footer class="main-footer" id="mainFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- 1. Logo Section -->
+          <div class="footer-section footer-logo">
+            <img
+              src="./files/logo.webp"
+              alt="Stackly Company Logo Placeholder"
+            />
+            <p>
+              Architecting the future of secure, intelligent enterprise.
+              Engineering excellence since 2013.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home2.html">Home</a></li>
+              <li><a href="./about2.html">About Us</a></li>
+              <!-- <li><a href="#">Services</a></li> -->
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./career.html">Careers</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div class="footer-section company-address">
+            <h4>Global HQ</h4>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9993;</span>
+              info@stackly.com
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9742;</span>
+              +1 (555) 123-STACK
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#127984;</span>
+              120 Broadway, Suite 300, New York, NY 10271
+            </p>
+          </div>
+
+          <!-- 5. Newsletter Subscription Form -->
+          <div class="footer-section newsletter-form">
+            <h4>Stay Ahead of the Curve</h4>
+            <form action="./404.html">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                id="newsletterEmail"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p
+              id="subscribe-status"
+              style="
+                font-size: 0.85rem;
+                margin-top: 10px;
+                color: var(--accent-light);
+              "
+            ></p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          &copy; 2025 Stackly Technologies. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. Intersection Observer for Slide-In Animations ---
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.15 /* Trigger animation when 15% of element is visible */,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.getAttribute("data-delay") || 0;
+
+              // Apply animated class after a short delay
+              setTimeout(() => {
+                entry.target.classList.add("animated");
+                observer.unobserve(entry.target);
+              }, delay);
+            }
+          });
+        }, observerOptions);
+
+        // Apply observer to all elements with the animation class
+        document.querySelectorAll(".animate-slide-in").forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>

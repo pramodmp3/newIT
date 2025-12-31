@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STACKLY Login - Futuristic Access</title>
+    <!-- Use a modern, technical-looking font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /*
+        ---------------------------------------------------
+        1. CSS Reset and Global Styles
+        ---------------------------------------------------
+        */
+      :root {
+        --color-dark-bg: #100e17; /* Deepest dark blue/purple */
+        --color-neon-blue: #00ffff; /* Cyan/Electric Blue */
+        --color-neon-purple: #ff00ff; /* Magenta/Fuchsia */
+        --color-text-light: #e0e0e0;
+        --color-input-bg: rgba(
+          255,
+          255,
+          255,
+          0.05
+        ); /* Semi-transparent for glass effect */
+        --transition-speed: 0.3s;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Space Mono", monospace;
+        background-color: var(--color-dark-bg);
+        color: var(--color-text-light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden; /* Hide the background shape overflow */
+        position: relative;
+      }
+
+      /*
+        ---------------------------------------------------
+        2. Animated Background (Floating Shapes)
+        ---------------------------------------------------
+        */
+      @keyframes rotate-shape {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0.2;
+        }
+        50% {
+          transform: translate(10vw, 50vh) rotate(180deg);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg);
+          opacity: 0.2;
+        }
+      }
+
+      @keyframes float-shape {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.3;
+        animation: float-shape 6s ease-in-out infinite alternate;
+      }
+
+      .shape-1 {
+        width: 300px;
+        height: 300px;
+        top: 10%;
+        left: -10%;
+        background: radial-gradient(
+          circle,
+          var(--color-neon-blue) 0%,
+          transparent 70%
+        );
+        animation: rotate-shape 15s linear infinite,
+          float-shape 8s ease-in-out infinite alternate;
+        border-radius: 50%;
+        filter: blur(80px); /* Glowing effect */
+      }
+
+      .shape-2 {
+        width: 250px;
+        height: 250px;
+        bottom: 5%;
+        right: -10%;
+        background: radial-gradient(
+          circle,
+          var(--color-neon-purple) 0%,
+          transparent 70%
+        );
+        animation: rotate-shape 20s reverse linear infinite,
+          float-shape 10s ease-in-out infinite alternate;
+        border-radius: 50%;
+        filter: blur(80px);
+      }
+
+      /*
+        ---------------------------------------------------
+        3. Login Card and Entrance Animation
+        ---------------------------------------------------
+        */
+      @keyframes card-entrance {
+        from {
+          opacity: 0;
+          transform: translateY(50px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .login-card {
+        background: rgba(
+          18,
+          16,
+          25,
+          0.6
+        ); /* Darker semi-transparent background */
+        backdrop-filter: blur(10px); /* Glassmorphism effect */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 40px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+        animation: card-entrance 0.8s ease-out forwards; /* Apply entrance animation */
+      }
+
+      /*
+        ---------------------------------------------------
+        4. Logo and Header
+        ---------------------------------------------------
+        */
+      .logo-text {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 5px;
+        margin-bottom: 30px;
+        /* Create a neon text effect using text-shadow */
+        color: var(--color-text-light);
+        text-shadow: 0 0 5px var(--color-neon-blue),
+          0 0 10px var(--color-neon-purple);
+        transition: color var(--transition-speed);
+      }
+
+      /*
+        ---------------------------------------------------
+        5. Form Styling and Input Focus Animation
+        ---------------------------------------------------
+        */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.8rem;
+        color: var(--color-neon-blue);
+        transition: color var(--transition-speed);
+      }
+
+      .login-input {
+        width: 100%;
+        padding: 12px 15px;
+        background: var(--color-input-bg);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        color: var(--color-text-light);
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+        outline: none; /* Remove default focus outline */
+      }
+
+      .login-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* Input focus glow animation */
+      .login-input:focus {
+        border-color: var(--color-neon-blue);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); /* Neon glow effect on focus */
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /*
+        ---------------------------------------------------
+        6. Links and Utility
+        ---------------------------------------------------
+        */
+      .utility-row {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 30px;
+      }
+
+      .forgot-password {
+        color: var(--color-neon-purple);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color var(--transition-speed);
+      }
+
+      .forgot-password:hover {
+        color: var(--color-neon-blue);
+        text-decoration: underline;
+      }
+
+      /*
+        ---------------------------------------------------
+        7. Login Button and Hover Animation (Glass Effect)
+        ---------------------------------------------------
+        */
+      .login-button {
+        position: relative; /* Needed for pseudo-element positioning */
+        overflow: hidden; /* Hide the overflowing gradient */
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: inherit;
+
+        /* Bold Gradient Background */
+        background: linear-gradient(
+          90deg,
+          var(--color-neon-blue) 0%,
+          var(--color-neon-purple) 100%
+        );
+        color: var(--color-dark-bg); /* Dark text on bright button */
+
+        transition: transform var(--transition-speed),
+          box-shadow var(--transition-speed);
+        z-index: 1; /* Ensure button content is above pseudo-element */
+      }
+
+      /* Glass effect overlay for button hover */
+      .login-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%; /* Start off-screen to the left */
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          /* Light streak for glass effect */ transparent
+        );
+        transition: left 0.5s ease-out; /* Smooth slide effect */
+        z-index: 2; /* Make sure it's above the button's background */
+      }
+
+      /* Button hover animation: subtle lift, stronger shadow, and glass swipe */
+      .login-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(0, 255, 255, 0.3),
+          0 4px 10px rgba(255, 0, 255, 0.3);
+      }
+
+      .login-button:hover::before {
+        left: 100%; /* Slide across to the right */
+      }
+
+      /*
+        ---------------------------------------------------
+        8. Sign Up Link
+        ---------------------------------------------------
+        */
+      .signup-prompt {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 0.9rem;
+        color: var(--color-text-light);
+        position: relative; /* For glass effect on link */
+        z-index: 1;
+      }
+
+      .signup-link {
+        color: var(--color-neon-purple);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color var(--transition-speed),
+          text-shadow var(--transition-speed);
+        position: relative; /* For glass effect on link */
+        display: inline-block; /* Essential for pseudo-element */
+        overflow: hidden; /* Hide the overflowing gradient */
+        padding: 2px 5px; /* Small padding to make hover area visible */
+        border-radius: 3px;
+      }
+
+      /* Glass effect overlay for signup link hover */
+      .signup-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          /* Lighter streak for text link */ transparent
+        );
+        transition: left 0.5s ease-out;
+        z-index: -1; /* Behind the text */
+      }
+
+      .signup-link:hover {
+        color: var(--color-neon-blue);
+        text-shadow: 0 0 5px var(--color-neon-blue);
+      }
+
+      .signup-link:hover::before {
+        left: 100%;
+      }
+
+      /*
+        ---------------------------------------------------
+        9. Mobile Responsiveness (Media Queries)
+        ---------------------------------------------------
+        */
+      @media (max-width: 600px) {
+        .login-card {
+          padding: 30px 20px; /* Smaller padding on small screens */
+          margin: 20px;
+        }
+
+        .logo-text {
+          font-size: 2rem;
+          letter-spacing: 4px;
+          margin-bottom: 20px;
+        }
+
+        .login-input {
+          padding: 10px 12px;
+          font-size: 0.9rem;
+        }
+
+        .login-button {
+          padding: 12px;
+          font-size: 1rem;
+        }
+
+        .signup-prompt {
+          font-size: 0.8rem;
+        }
+
+        /* Reduce size/blur of background shapes for less clutter on small screens */
+        .shape-1 {
+          width: 200px;
+          height: 200px;
+          filter: blur(50px);
+        }
+        .shape-2 {
+          width: 150px;
+          height: 150px;
+          filter: blur(50px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        Animated Background Container: Contains shapes that move and glow.
+        These are placed absolutely and use blur filters for a soft, atmospheric effect.
+    -->
+    <div class="background-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+
+    <!-- Main Login Card Container -->
+    <div class="login-card">
+      <!-- Company Logo Text -->
+      <h1 class="logo-text">STACKLY</h1>
+
+      <!-- Login Form -->
+      <form action="./404.html">
+        <div class="form-group">
+          <label for="email">EMAIL ADDRESS</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="login-input"
+            placeholder="user@stackly.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">PASSWORD</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="login-input"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <div class="utility-row">
+          <a href="./404.html" class="forgot-password">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-button">LOGIN TO PORTAL</button>
+      </form>
+
+      <!-- New User Sign Up Prompt -->
+      <div class="signup-prompt">
+        Don't have an account?
+        <a href="./signup.html" class="signup-link">Sign Up Now</a>
+      </div>
+    </div>
+  </body>
+</html>

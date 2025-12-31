@@ -1,0 +1,499 @@
+/* Base Reset and Variables */
+:root {
+  --primary-bg: #1a1a2e; /* Deep Indigo/Navy - Kept dark for contrast */
+  --secondary-bg: #0f0f1b;
+  --accent-color: #8a2be2; /* Blue Violet */
+  --text-color: #eaeaea;
+  --font-family: "Inter", sans-serif;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  min-height: 200vh; /* For testing fixed/sticky behavior */
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ----------------------------------
+        1. NAVBAR STRUCTURE (DESKTOP)
+        ---------------------------------- */
+
+.navbar {
+  background-color: var(--primary-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 1rem 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  transition: transform var(--transition-speed), filter var(--transition-speed);
+}
+
+.logo-link:hover {
+  transform: scale(1.05) rotate(1deg);
+  filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+.logo {
+  height: auto;
+  width: 150px;
+  border-radius: 8px;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.nav-item {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0;
+}
+
+/* Nav Link Hover Animation (Animated Underline) */
+.nav-link {
+  position: relative;
+  padding: 5px 0;
+  transition: color var(--transition-speed);
+  display: block;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  /* Updated gradient */
+  background: linear-gradient(90deg, var(--accent-color), #a290e7);
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s;
+  transform-origin: left;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+  transform: scaleX(1);
+}
+
+/* ----------------------------------
+        2. DROPDOWN STYLING & ANIMATION
+        ---------------------------------- */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 180px;
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+
+  /* Slide + Fade Animation Setup */
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px); /* Initial slide-down offset */
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.nav-item.dropdown-open .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0); /* Slide up to final position */
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  pointer-events: auto;
+}
+
+.dropdown a {
+  padding: 8px 20px;
+  display: block;
+  white-space: nowrap;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+.dropdown a:hover {
+  /* Updated RGBA for Blue Violet (#8A2BE2) */
+  background-color: rgba(138, 43, 226, 0.1);
+  color: var(--accent-color);
+}
+
+.dropdown-toggle-icon {
+  margin-left: 8px;
+  transition: transform var(--transition-speed) ease-in-out;
+  display: inline-block;
+}
+
+.nav-item.dropdown-open .dropdown-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* ----------------------------------
+        3. CONTACT BUTTON (UNIQUE SHAPE)
+        ---------------------------------- */
+
+.contact-btn,
+.mobile-contact-link {
+  position: relative;
+  /* Updated gradient for Blue Violet */
+  background: linear-gradient(135deg, var(--accent-color), #7423c3);
+  color: var(--primary-bg);
+  font-weight: 700;
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  overflow: hidden;
+  display: inline-block; /* Ensure link behaves like a block/button */
+
+  /* Unique Shape: Clip Path */
+  clip-path: polygon(
+    10% 0%,
+    /* Top Left Cut */ 100% 0%,
+    /* Top Right Sharp */ 90% 100%,
+    /* Bottom Right Cut */ 0% 100% /* Bottom Left Sharp */
+  );
+
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  font-size: 0.9rem;
+}
+
+/* 360 Rotation and Glow on Hover */
+.contact-btn:hover,
+.mobile-contact-link:hover {
+  transform: scale(1.1);
+  /* Updated box shadow color */
+  box-shadow: 0 0 15px var(--accent-color), 0 0 25px rgba(138, 43, 226, 0.5);
+  /* Shortened rotation animation for quicker feedback */
+  animation: rotateGlow 0.8s infinite linear;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(360deg);
+  }
+}
+
+/* Mobile specific style for the button to fit the menu */
+.mobile-contact-link {
+  font-size: 1.5rem; /* Match mobile menu font size */
+  padding: 15px 30px;
+  display: inline-flex; /* Use flex to easily center text */
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto; /* Center in the list item */
+  width: 80%;
+  max-width: 300px;
+}
+
+/* ----------------------------------
+        4. MOBILE MENU STYLING (ENHANCED)
+        ---------------------------------- */
+
+.hamburger-menu {
+  display: none; /* Hidden on desktop */
+  width: 32px; /* Slightly wider */
+  height: 26px; /* Slightly taller */
+  position: relative;
+  cursor: pointer;
+  padding: 2px;
+  z-index: 1100;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border-color var(--transition-speed);
+  /* UNIQUE GLOW EFFECT (PULSE) */
+  animation: pulsateGlow 2s infinite alternate ease-in-out;
+}
+
+/* Disable the pulse when the menu is active/open */
+.hamburger-menu.is-active {
+  animation: none;
+  /* Updated border color */
+  border-color: rgba(138, 43, 226, 0.5);
+  box-shadow: none;
+}
+
+@keyframes pulsateGlow {
+  0% {
+    /* Updated box shadow color */
+    box-shadow: 0 0 5px var(--accent-color), 0 0 10px rgba(138, 43, 226, 0.3);
+  }
+  100% {
+    /* Updated box shadow color */
+    box-shadow: 0 0 10px var(--accent-color), 0 0 20px rgba(138, 43, 226, 0.6);
+  }
+}
+
+.bar {
+  width: 100%;
+  height: 4px; /* Thicker bars */
+  /* ENHANCED GRADIENT COLOR - Blue Violet */
+  background: linear-gradient(
+    90deg,
+    #8a2be2,
+    #a290e7,
+    #8a2be2
+  ); /* A more striking gradient */
+  position: absolute;
+  left: 0;
+  /* Snappier, pronounced ease-out/snap animation timing */
+  transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  border-radius: 4px; /* Rounded ends */
+  /* Updated glow on bars */
+  box-shadow: 0 0 8px rgba(138, 43, 226, 1);
+}
+
+.bar-top {
+  top: 0;
+}
+.bar-mid {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bar-bottom {
+  bottom: 0;
+}
+
+/* Hamburger Morph Animation (X with Rotation) */
+.hamburger-menu.is-active .bar {
+  box-shadow: none; /* Remove glow when active for clean look */
+  background: var(--accent-color); /* Solid color when active */
+}
+.hamburger-menu.is-active .bar-top {
+  transform: translateY(11px) rotate(45deg);
+}
+.hamburger-menu.is-active .bar-mid {
+  opacity: 0;
+  transform: translateX(30px); /* Wipe-out effect to the right */
+}
+.hamburger-menu.is-active .bar-bottom {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Mobile Menu Container */
+.mobile-nav-container {
+  position: fixed;
+  top: 80px; /* Push the menu below the navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 80px);
+  background-color: var(--primary-bg);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px; /* Space for the fixed navbar above */
+
+  /* Initial state for slide-in */
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.4s ease-out;
+  z-index: 900;
+  overflow-y: auto;
+}
+
+.mobile-nav-container.is-active {
+  display: flex;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.mobile-menu {
+  width: 80%;
+  text-align: center;
+}
+
+/* New structure for mobile dropdown item */
+.mobile-nav-item {
+  margin-bottom: 1.5rem;
+  /* Reset padding from old structure */
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mobile-item-header {
+  display: flex;
+  justify-content: center; /* Center the content */
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Remove border-bottom from the item containing the button */
+.mobile-nav-item.has-button .mobile-item-header {
+  border-bottom: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.mobile-nav-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  transition: color var(--transition-speed);
+}
+
+.mobile-nav-link:hover {
+  color: var(--accent-color);
+  transform: scale(1.05);
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.mobile-dropdown-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 5px;
+  display: flex; /* To center the icon */
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-speed);
+  color: var(
+    --text-color
+  ); /* To ensure button state reflects parent text color */
+}
+
+.mobile-dropdown-arrow:hover {
+  color: var(--accent-color);
+}
+
+.mobile-dropdown-arrow:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+  padding: 0 20px;
+  background-color: var(--secondary-bg);
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.mobile-dropdown.is-open {
+  max-height: 200px; /* Sufficient height for content */
+  padding: 10px 20px;
+}
+
+.mobile-dropdown a {
+  display: block;
+  padding: 10px 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+.mobile-dropdown a:hover {
+  color: var(--accent-color);
+  background-color: transparent;
+}
+
+/* General Arrow Icon (for mobile and desktop) */
+.arrow-icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 8px;
+  /* BOLDER AND BIGGER ARROW */
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--text-color);
+  transition: transform var(--transition-speed) ease-in-out;
+}
+
+/* Mobile Arrow Rotation & Color Change */
+.mobile-nav-item.is-open .mobile-dropdown-arrow .arrow-icon {
+  transform: rotate(180deg);
+  border-top-color: var(--accent-color);
+}
+
+/* Ensures the arrow in the button changes color on hover */
+.mobile-dropdown-arrow:hover .arrow-icon {
+  border-top-color: var(--accent-color);
+}
+
+/* ----------------------------------
+        5. MEDIA QUERIES (RESPONSIVENESS)
+        ---------------------------------- */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+  .nav-menu {
+    gap: 1.5rem;
+  }
+  .contact-btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+    /* Center the hamburger when no button is present */
+    margin: 0 10px 0 auto;
+  }
+
+  .navbar {
+    border-bottom: none; /* Clean up border for mobile */
+  }
+
+  .logo-link {
+    margin: 0; /* Align logo left for better mobile flow */
+  }
+}

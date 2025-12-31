@@ -1,0 +1,988 @@
+/* --- 1. Variables and Global Styles --- */
+:root {
+  --primary-bg: #1a1a2e; /* Deep Indigo/Navy */
+  --secondary-bg: #0f0f1b; /* Darker Background */
+  --accent-color: #8a2be2; /* Blue Violet */
+  --accent-light: #a290e7; /* Lighter Violet */
+  --text-color: #eaeaea;
+  --clr-hamburger-dark-blue: #eaeaea; /* or any visible color */
+  --clr-mobile-dark-text: #000000;
+  --soft-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(138, 43, 226, 0.08); /* Subtle BlueViolet Glass */
+  --font-family: "Inter", sans-serif;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: radial-gradient(
+      circle at top left,
+      var(--primary-bg) 0%,
+      var(--secondary-bg) 100%
+    )
+    no-repeat;
+  color: var(--text-color);
+  /* **REQUIRED STICKY FOOTER SETUP** */
+  display: flex; /* Make body a flex container */
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure it takes up full viewport height */
+  /* **END REQUIRED STICKY FOOTER SETUP** */
+  overflow-x: hidden;
+  /* REMOVED: padding-bottom: 4rem; */ /* This must be removed */
+  perspective: 1px;
+  padding-top: 80px;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+/* ---------------- HEADER (Animated Gradient) ---------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  /* Header Gradient */
+  /* background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--accent-light),
+    var(--text-color),
+    var(--accent-color)
+  ); */
+  background: var(--accent-color);
+  background-size: 300% 300%;
+  animation: headerGradient 12s ease infinite;
+
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 1000;
+}
+
+@keyframes headerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Logo Container */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+  z-index: 1001;
+}
+
+.logo-img {
+  width: 150px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------------- DESKTOP NAVIGATION ---------------- */
+.nav-links-desktop {
+  display: none;
+  margin-left: auto;
+}
+
+.nav-list-desktop {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-item-desktop {
+  position: relative;
+}
+
+/* Base Link Color: Black */
+.nav-link-desktop {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  color: var(--clr-dark-text);
+}
+
+/* Dropdown caret */
+.nav-item-desktop[aria-haspopup="true"] > .nav-link-desktop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-item-desktop[aria-haspopup="true"] > .nav-link-desktop::after {
+  content: "\25BE";
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--accent-light);
+  transition: transform var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+  transform: translateY(1px);
+}
+
+/* Hover glow */
+.nav-item-desktop:hover > .nav-link-desktop {
+  color: var(--text-color); /* Hover Text: White */
+  transform: none !important;
+  text-shadow: 0 0 8px var(--accent-color);
+}
+
+/* FIXED — No vertical movement */
+.nav-item-desktop:hover > .nav-link-desktop {
+  color: var(--text-color); /* Hover Text: White */
+  text-shadow: 0 0 8px var(--accent-color);
+  transform: none;
+}
+
+.nav-item-desktop:hover > .nav-link-desktop::after {
+  color: var(--text-color); /* Hover Caret: White */
+  transform: rotate(180deg) translateY(1px);
+}
+
+/* Desktop Dropdown */
+.dropdown-desktop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 180px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+}
+
+.nav-item-desktop:hover > .dropdown-desktop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-desktop a {
+  padding: 12px 20px;
+  display: block;
+  color: var(--clr-dark-text); /* Base color: Black */
+  transition: background var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+/* Gradient hover (Violet-themed) */
+.dropdown-desktop a:hover {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+  color: var(--text-color); /* Hover Text: White */
+}
+/* Desktop SHOP Button */
+.shop-btn-desktop .shop-btn-link {
+  padding: 10px 18px;
+  font-weight: 700;
+  color: var(--clr-dark-text);
+  border-radius: 6px;
+  background: linear-gradient(135deg, #ff7a7a, #ff3d3d, #ff9a3c);
+  background-size: 200% 200%;
+  animation: shopBtnGradient 6s ease infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.shop-btn-desktop .shop-btn-link:hover {
+  transform: scale(1.05);
+  box-shadow: var(--soft-shadow);
+}
+
+/* Button gradient animation */
+@keyframes shopBtnGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ---------------- MOBILE NAV / HAMBURGER ---------------- */
+.menu-toggle {
+  display: none;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 1010;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.menu-toggle-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  /* ❗ HAMBURGER LINE COLOR CHANGE */
+  background: var(--clr-hamburger-dark-blue);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.35s ease, top 0.35s ease;
+}
+
+.menu-toggle-line:nth-child(1) {
+  top: 6px;
+}
+.menu-toggle-line:nth-child(2) {
+  top: 14px;
+}
+.menu-toggle-line:nth-child(3) {
+  top: 22px;
+}
+
+.menu-toggle.open .menu-toggle-line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 14px;
+}
+.menu-toggle.open .menu-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open .menu-toggle-line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 14px;
+}
+
+/* ---------------- MOBILE MENU ---------------- */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* ❗ MOBILE MENU BACKGROUND CHANGE: Solid White */
+  background: #ffffff;
+  background-size: 300% 300%;
+  /* Removed gradient animation as it is now solid color */
+
+  padding-top: 120px;
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.7, 0, 0.3, 1);
+  z-index: 999;
+  overflow-y: auto;
+}
+
+/* Removed @keyframes mobileGradient as it's no longer needed for a solid background */
+
+.nav-mobile.open {
+  transform: translateY(0);
+}
+
+.nav-list-mobile {
+  list-style: none;
+  padding: 0 20px;
+}
+
+.nav-item-mobile {
+  /* Kept subtle violet border, but might need adjustment if it clashes with white */
+  border-bottom: 1px solid rgba(138, 43, 226, 0.4);
+}
+
+/* Base Mobile Link Color: Dark Gray */
+.nav-link-mobile {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--clr-mobile-dark-text); /* Base color: Dark Gray */
+  cursor: pointer;
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-link-mobile:hover {
+  color: var(--accent-color); /* Hover Text: Violet Accent */
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5); /* Adjusted shadow for light background */
+}
+
+/* Mobile dropdown arrow */
+.dropdown-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  border: solid var(--clr-mobile-dark-text); /* Dark arrow for white menu */
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  transform: rotate(45deg);
+  transition: transform var(--transition-speed) ease;
+}
+
+.dropdown-toggle.active .dropdown-arrow {
+  transform: rotate(135deg);
+}
+
+.dropdown-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  padding-left: 0;
+}
+
+.dropdown-mobile.open {
+  max-height: 200px;
+  padding-bottom: 10px;
+}
+
+.dropdown-mobile a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: var(--clr-mobile-dark-text); /* Base color: Dark Gray */
+  transition: color var(--transition-speed) ease,
+    background var(--transition-speed) ease;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.dropdown-mobile a:hover {
+  color: var(--accent-color); /* Hover Text: Violet Accent */
+  /* Using a subtle dark background hover for white menu */
+  background-color: rgba(0, 0, 0, 0.05);
+}
+/* Mobile SHOP Button */
+.shop-btn-mobile {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--clr-dark-text) !important; /* Base color: Black */
+
+  background: linear-gradient(135deg, #ff7a7a, #ff3d3d, #ff9a3c);
+  background-size: 200% 200%;
+  animation: shopBtnGradient 6s ease infinite;
+
+  text-align: center;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.shop-btn-mobile:hover {
+  box-shadow: var(--soft-shadow);
+  transform: scale(1.05);
+}
+
+/* Overlay for Mobile */
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(4px);
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .nav-links-desktop {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-links-desktop {
+    display: block;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .nav-mobile {
+    display: none;
+  }
+}
+/* --- 2. Layout Structure --- */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  padding-top: 4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  color: var(--accent-light);
+  text-shadow: 0 0 15px var(--accent-color);
+}
+
+h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  color: var(--accent-light);
+}
+
+.separator {
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-color),
+    transparent
+  );
+  margin: 0.5rem auto 5rem auto;
+  border-radius: 50%;
+}
+
+/* New History Overview Styling */
+.history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto 5rem auto;
+}
+
+.history-image {
+  width: 100%;
+  max-width: 500px; /* Limit image size */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--soft-shadow);
+  border: 2px solid var(--accent-color);
+}
+
+.history-overview {
+  padding: 1.5rem;
+  text-align: center;
+  border-left: 5px solid var(--accent-color);
+  background-color: var(--secondary-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.history-overview p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(234, 234, 234, 0.95);
+}
+
+/* --- 3. Scroll Animation Classes --- */
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 4. Vision & Mission Section --- */
+
+.vision-mission-grid {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.vision-mission-card {
+  flex: 1;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--soft-shadow);
+}
+
+.vm-icon {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.vision-mission-card h3 {
+  font-size: 1.8rem;
+  color: var(--accent-light);
+  margin-bottom: 1rem;
+}
+
+.vision-mission-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(234, 234, 234, 0.85);
+}
+
+/* --- 5. Core Values Section --- */
+
+.values-grid {
+  display: grid;
+  /* UPDATED: Set grid template to explicitly handle 5 columns for aesthetic spacing */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+/* Reset grid for smaller screens using auto-fit */
+@media (max-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+.value-card {
+  background: var(--primary-bg);
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+}
+
+/* Value Card Hover Effect */
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(138, 43, 226, 0.5);
+  background: var(--secondary-bg);
+}
+
+.value-card h4 {
+  color: var(--accent-light);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.value-card-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+}
+
+/* --- 6. Company History Timeline --- */
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* Vertical Line for Timeline */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(138, 43, 226, 0),
+    var(--accent-color),
+    rgba(138, 43, 226, 0)
+  );
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  z-index: 0;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  margin-bottom: 3rem;
+  opacity: 0; /* Base state for animation */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.timeline-item.animated {
+  opacity: 1;
+}
+
+/* Left Side */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  transform: translateX(-50px);
+}
+.timeline-item:nth-child(odd).animated {
+  transform: translateX(0);
+}
+
+/* Right Side */
+.timeline-item:nth-child(even) {
+  left: 50%;
+  transform: translateX(50px);
+}
+.timeline-item:nth-child(even).animated {
+  transform: translateX(0);
+}
+
+/* Timeline Dot/Point */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: -7.5px;
+  background-color: var(--secondary-bg);
+  border: 3px solid var(--accent-color);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Content Card */
+.timeline-content {
+  padding: 20px 30px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-content h4 {
+  color: var(--accent-light);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  font-size: 0.9rem;
+  color: rgba(234, 234, 234, 0.8);
+}
+
+/* Arrows for Content Cards */
+.timeline-item:nth-child(odd) .timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: rgba(138, 43, 226, 0.3);
+  transform: translateX(20px);
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: rgba(138, 43, 226, 0.3);
+  transform: translateX(-20px);
+}
+
+/* Right side item adjustments */
+.timeline-item:nth-child(even)::after {
+  left: -7.5px;
+}
+/* --- 2. Footer Section Styling --- */
+.main-footer {
+  background-color: var(--primary-bg);
+  padding: 4rem 0 2rem 0;
+  border-top: 3px solid var(--accent-color);
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+
+  /* JS Scroll Animation Base State */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.main-footer.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 2fr; /* 4-column layout */
+  gap: 3rem;
+  padding-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: var(--accent-light);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 10px;
+}
+
+/* 1. Logo and Tagline */
+.footer-logo img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
+  /* filter: drop-shadow(0 0 5px var(--accent-glow)); */
+}
+.footer-logo p {
+  font-size: 0.9rem;
+  color: rgba(234, 234, 234, 0.7);
+  line-height: 1.6;
+}
+
+/* 2. Quick Links */
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+.quick-links ul li {
+  margin-bottom: 0.5rem;
+}
+.quick-links a {
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+}
+.quick-links a:hover {
+  color: var(--accent-color);
+  padding-left: 8px; /* Slide effect on hover */
+}
+.quick-links a::before {
+  content: "—";
+  margin-right: 5px;
+  color: var(--accent-color);
+  opacity: 0;
+  transition: opacity var(--transition-speed),
+    margin-right var(--transition-speed);
+}
+.quick-links a:hover::before {
+  opacity: 1;
+  margin-right: 2px;
+}
+
+/* 3. Address */
+.company-address p {
+  margin-bottom: 1rem;
+  color: rgba(234, 234, 234, 0.8);
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+.company-address span {
+  margin-right: 10px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  line-height: 1.5; /* Ensure icon aligns with text */
+}
+
+/* 4. Social Icons (Using simple Unicode/Entities) */
+.social-icons {
+  margin-top: 1.5rem;
+}
+.social-icons a {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-right: 1.2rem;
+  color: var(--text-color);
+  transition: transform var(--transition-speed), color var(--transition-speed),
+    text-shadow var(--transition-speed);
+}
+.social-icons a:hover {
+  color: var(--accent-color);
+  transform: scale(1.25); /* Scale effect on hover */
+  text-shadow: 0 0 15px var(--accent-glow); /* Glowing effect */
+}
+
+/* 5. Newsletter Form */
+.newsletter-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.newsletter-form input[type="email"] {
+  padding: 12px;
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  border-radius: 8px;
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: box-shadow var(--transition-speed),
+    border-color var(--transition-speed);
+}
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 15px var(--accent-glow); /* Glowing border on focus */
+}
+.newsletter-form button {
+  padding: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+
+  /* Button Hover Animation */
+  background: linear-gradient(90deg, var(--accent-color), #6c32c4);
+  color: var(--text-color);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.newsletter-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(138, 43, 226, 0.7);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
+  font-size: 0.85rem;
+  color: rgba(234, 234, 234, 0.6);
+}
+
+/* --- 3. Footer Media Queries --- */
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2-column layout on tablet */
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* 1-column stacked layout on mobile */
+    gap: 1.5rem;
+  }
+  .footer-section h4 {
+    margin-top: 1rem;
+  }
+  /* Center content when stacked on mobile */
+  .footer-logo,
+  .quick-links,
+  .company-address,
+  .newsletter-form {
+    text-align: center;
+  }
+  .footer-logo img {
+    margin: 0 auto 1rem auto;
+    display: block;
+  }
+  .quick-links ul {
+    text-align: center;
+  }
+  .quick-links a:hover {
+    padding-left: 0;
+  }
+  .quick-links a::before {
+    display: none;
+  }
+  .company-address p {
+    justify-content: center;
+  }
+  .social-icons {
+    text-align: center;
+  }
+  .newsletter-form form {
+    align-items: center;
+  }
+  .newsletter-form input[type="email"],
+  .newsletter-form button {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+/* --- 7. Media Queries (Responsiveness) --- */
+
+@media (max-width: 900px) {
+  .timeline::after {
+    left: 18px; /* Move central line to the left */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 15px;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    transform: translateX(
+      0
+    ); /* Reset horizontal transform for mobile slide-up */
+  }
+
+  /* New mobile slide-up animation */
+  .timeline-item.animate-slide-up {
+    transform: translateY(40px);
+  }
+
+  .timeline-item.animated {
+    transform: translateY(0);
+  }
+
+  .timeline-item::after {
+    left: 10px; /* Adjust dot position */
+  }
+
+  /* Remove arrows for cleaner mobile look */
+  .timeline-content::before {
+    display: none;
+  }
+
+  .vision-mission-grid {
+    flex-direction: column;
+  }
+
+  /* UPDATED: Center vision/mission content on mobile */
+  .vision-mission-card {
+    text-align: center;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly | Contact Us - Global Solutions</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./sub.css" />
+  </head>
+  <body>
+    <!-- Header / Fixed Navbar -->
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./files/logo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home2.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./product.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQs</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./career.html" class="nav-link-desktop">CAREERS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home2.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./product.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQs
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./career.html" class="nav-link-mobile">CAREERS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Main Content Wrapper -->
+    <main>
+      <div class="container">
+        <h1 class="animate-fade-in">CONTACT STACKLY</h1>
+        <div class="separator animate-fade-in"></div>
+
+        <!-- Section 1: Global Locations -->
+        <h2 class="animate-fade-in" data-delay="200">Our Global Hubs</h2>
+        <div class="locations-grid">
+          <div class="location-card animate-fade-in" data-delay="400">
+            <p class="card-icon">&#127984;</p>
+            <h3>New York, USA</h3>
+            <p>120 Broadway, Suite 300, New York, NY 10271</p>
+            <p>Americas HQ</p>
+          </div>
+          <div class="location-card animate-fade-in" data-delay="500">
+            <p class="card-icon">&#127984;</p>
+            <h3>London, UK</h3>
+            <p>Level 3, The Gherkin, 30 St Mary Axe, London EC3A 8BF</p>
+            <p>European HQ</p>
+          </div>
+          <div class="location-card animate-fade-in" data-delay="600">
+            <p class="card-icon">&#127984;</p>
+            <h3>Singapore</h3>
+            <p>Marina Bay Financial Centre, Tower 1, Singapore 018981</p>
+            <p>APAC Solutions</p>
+          </div>
+          <div class="location-card animate-fade-in" data-delay="700">
+            <p class="card-icon">&#127984;</p>
+            <h3>Dubai, UAE</h3>
+            <p>Jumeirah Lakes Towers, Cluster A, Office 3401, Dubai</p>
+            <p>Middle East Tech Center</p>
+          </div>
+        </div>
+
+        <!-- Section 2: Contact Form and Map -->
+        <h2 class="animate-fade-in" data-delay="800">Get in Touch</h2>
+
+        <section class="contact-content">
+          <!-- Contact Form -->
+          <form
+            class="contact-form animate-fade-in"
+            data-delay="1000"
+            id="contactForm"
+            action="./404.html"
+          >
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@company.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number (Optional)</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(555) 123-4567"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell us about your project or inquiry..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+            <div
+              id="form-status"
+              style="
+                margin-top: 15px;
+                color: var(--accent-light);
+                text-align: center;
+              "
+            ></div>
+          </form>
+
+          <!-- New York Map -->
+          <div class="map-section animate-fade-in" data-delay="1200">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12096.069411649961!2d-74.01509010000001!3d40.7107198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a16d5668b57%3A0xc6c7694903ed7c8a!2s120%20Broadway%2C%20New%20York%2C%20NY%2010271%2C%20USA!5e0!3m2!1sen!2sin!4v1700684224749!5m2!1sen!2sin"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="New York Office Location Map"
+            ></iframe>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="main-footer" id="mainFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- 1. Logo Section -->
+          <div class="footer-section footer-logo">
+            <img
+              src="./files/logo.webp"
+              alt="Stackly Company Logo Placeholder"
+            />
+            <p>
+              Architecting the future of secure, intelligent enterprise.
+              Engineering excellence since 2013.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home2.html">Home</a></li>
+              <li><a href="./about2.html">About Us</a></li>
+              <!-- <li><a href="#">Services</a></li> -->
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./career.html">Careers</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div class="footer-section company-address">
+            <h4>Global HQ</h4>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9993;</span>
+              info@stackly.com
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9742;</span>
+              +1 (555) 123-STACK
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#127984;</span>
+              120 Broadway, Suite 300, New York, NY 10271
+            </p>
+          </div>
+
+          <!-- 5. Newsletter Subscription Form -->
+          <div class="footer-section newsletter-form">
+            <h4>Stay Ahead of the Curve</h4>
+            <form action="./404.html">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                id="newsletterEmail"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p
+              id="subscribe-status"
+              style="
+                font-size: 0.85rem;
+                margin-top: 10px;
+                color: var(--accent-light);
+              "
+            ></p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          &copy; 2025 Stackly Technologies. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./sub.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. Intersection Observer for Fade-In Animations ---
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1 /* Trigger animation when 10% of element is visible */,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.getAttribute("data-delay") || 0;
+              setTimeout(() => {
+                entry.target.classList.add("animated");
+                observer.unobserve(entry.target);
+              }, delay);
+            }
+          });
+        }, observerOptions);
+
+        // Apply observer to all elements with the animation class
+        document.querySelectorAll(".animate-fade-in").forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>

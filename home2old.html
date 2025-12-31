@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly | Next-Gen IT Solutions (Redesign)</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./home2.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./files/logo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home2.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./product.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQs</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./career.html" class="nav-link-desktop">CAREERS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home2.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./product.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQs
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./career.html" class="nav-link-mobile">CAREERS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Main Content Wrapper -->
+    <main>
+      <!-- Section 1: Hero Section (Angled Base) -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-headline animate-slide-up">
+            The Future of Enterprise IT Starts Here.
+          </h1>
+          <p class="hero-subheadline animate-slide-up" data-delay="200">
+            Stackly is pioneering resilient cloud architecture, integrated AI
+            solutions, and absolute security for global digital transformation.
+          </p>
+          <a
+            href="./product.html"
+            class="hero-cta-btn animate-slide-up"
+            data-delay="400"
+          >
+            Explore Platform
+          </a>
+        </div>
+      </section>
+
+      <div class="container">
+        <!-- Section 2: Why Us Section -->
+        <section>
+          <h2 class="animate-slide-up" data-delay="500">Why Choose Stackly?</h2>
+          <div class="why-us-grid">
+            <div class="why-us-card animate-slide-up" data-delay="600">
+              <span class="why-us-card-icon">🧠</span>
+              <h3>AI-Native Core</h3>
+              <p>
+                Solutions are engineered with deep learning principles from the
+                ground up, not as add-ons.
+              </p>
+            </div>
+            <div class="why-us-card animate-slide-up" data-delay="700">
+              <span class="why-us-card-icon">🔒</span>
+              <h3>Zero Trust Model</h3>
+              <p>
+                Our security framework eliminates implicit trust, ensuring
+                maximum data integrity and protection.
+              </p>
+            </div>
+            <div class="why-us-card animate-slide-up" data-delay="800">
+              <span class="why-us-card-icon">☁️</span>
+              <h3>Hybrid Resilience</h3>
+              <p>
+                Architectures are built for flexibility, operating seamlessly
+                across public and private cloud environments.
+              </p>
+            </div>
+            <!-- <div class="why-us-card animate-slide-up" data-delay="900">
+              <span class="why-us-card-icon">🤝</span>
+              <h3>Empowerment First</h3>
+              <p>
+                We transfer knowledge, ensuring your in-house teams can manage
+                and scale our solutions independently.
+              </p>
+            </div> -->
+          </div>
+        </section>
+
+        <!-- Section 3: Products Intro Section (Split Card) -->
+        <section>
+          <h2 class="animate-slide-up" data-delay="1000">Our Applications</h2>
+          <div class="products-intro-wrap animate-slide-up" data-delay="1100">
+            <div class="products-intro">
+              <div class="products-text-content">
+                <h3>Discover the Stackly Ecosystem</h3>
+                <p>
+                  From CloudFlow Orchestrator to DataSense Analytics, our suite
+                  of proprietary applications delivers measurable operational
+                  efficiency. Explore how our tools integrate to form a
+                  cohesive, future-proof IT environment.
+                </p>
+                <a href="./product.html" class="products-cta-btn"
+                  >View All Products</a
+                >
+              </div>
+              <div class="products-visual">
+                <!-- Placeholder image is handled by background-image in CSS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Achievements Section -->
+        <section>
+          <h2 class="animate-slide-up" data-delay="1200">
+            Milestones That Matter
+          </h2>
+          <div class="achievements-grid">
+            <div class="achievement-card animate-slide-up" data-delay="1300">
+              <div class="achievement-number" data-target="500" data-prefix="+">
+                0
+              </div>
+              <p class="achievement-label">Enterprise Clients</p>
+            </div>
+
+            <div class="achievement-card animate-slide-up" data-delay="1400">
+              <div
+                class="achievement-number"
+                data-target="99"
+                data-suffix=".99%"
+              >
+                0
+              </div>
+              <p class="achievement-label">Uptime Reliability</p>
+            </div>
+
+            <div class="achievement-card animate-slide-up" data-delay="1500">
+              <div class="achievement-number" data-target="150" data-prefix="~">
+                0
+              </div>
+              <p class="achievement-label">Bespoke Solutions</p>
+            </div>
+
+            <div class="achievement-card animate-slide-up" data-delay="1600">
+              <div
+                class="achievement-number"
+                data-target="12"
+                data-suffix="+ Years"
+              >
+                0
+              </div>
+              <p class="achievement-label">Industry Experience</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="main-footer" id="mainFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- 1. Logo Section -->
+          <div class="footer-section footer-logo">
+            <img
+              src="./files/logo.webp"
+              alt="Stackly Company Logo Placeholder"
+            />
+            <p>
+              Architecting the future of secure, intelligent enterprise.
+              Engineering excellence since 2013.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home2.html">Home</a></li>
+              <li><a href="./about2.html">About Us</a></li>
+              <!-- <li><a href="#">Services</a></li> -->
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./career.html">Careers</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div class="footer-section company-address">
+            <h4>Global HQ</h4>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9993;</span>
+              info@stackly.com
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9742;</span>
+              +1 (555) 123-STACK
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#127984;</span>
+              120 Broadway, Suite 300, New York, NY 10271
+            </p>
+          </div>
+
+          <!-- 5. Newsletter Subscription Form -->
+          <div class="footer-section newsletter-form">
+            <h4>Stay Ahead of the Curve</h4>
+            <form action="./404.html">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                id="newsletterEmail"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p
+              id="subscribe-status"
+              style="
+                font-size: 0.85rem;
+                margin-top: 10px;
+                color: var(--accent-light);
+              "
+            ></p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          &copy; 2025 Stackly Technologies. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. Intersection Observer for Scroll Reveal Animations ---
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1 /* Trigger animation when 10% of element is visible */,
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.getAttribute("data-delay") || 0;
+
+              setTimeout(() => {
+                entry.target.classList.add("animated");
+                // If it's an achievement card, start the counter animation
+                if (entry.target.classList.contains("achievement-card")) {
+                  const numberElement = entry.target.querySelector(
+                    ".achievement-number"
+                  );
+                  if (
+                    numberElement &&
+                    !numberElement.hasAttribute("data-counted")
+                  ) {
+                    animateCounter(numberElement);
+                    numberElement.setAttribute("data-counted", "true"); // Prevent recounting
+                  }
+                }
+                observer.unobserve(entry.target);
+              }, delay);
+            }
+          });
+        }, observerOptions);
+
+        // Apply observer to all elements with the animation class
+        document
+          .querySelectorAll(
+            ".animate-slide-up, .achievement-card, .why-us-card"
+          )
+          .forEach((el) => {
+            scrollObserver.observe(el);
+          });
+
+        // --- 2. Animated Counter Function ---
+        function animateCounter(el) {
+          const target = +el.getAttribute("data-target");
+          const prefix = el.getAttribute("data-prefix") || "";
+          const suffix = el.getAttribute("data-suffix") || "";
+          let start = 0;
+
+          // Configuration for the counter animation
+          const duration = 2000; // 2 seconds
+          const startTime = Date.now();
+
+          // Function to update the number
+          const updateCount = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            let value;
+            if (suffix.includes(".99%")) {
+              // Custom non-linear approach for high-precision percentages
+              value = 98 + (target - 98) * Math.pow(progress, 0.5); // Use square root for slower finish
+              value = Math.min(target, value);
+              el.textContent = prefix + value.toFixed(2) + suffix;
+            } else {
+              // Standard linear approach for integers
+              value = Math.floor(target * progress);
+              el.textContent = prefix + value + suffix;
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCount);
+            } else {
+              // Ensure the final target value is hit exactly
+              if (suffix.includes(".99%")) {
+                el.textContent = prefix + target.toFixed(2) + suffix;
+              } else {
+                el.textContent = prefix + target + suffix;
+              }
+            }
+          };
+
+          requestAnimationFrame(updateCount);
+        }
+      });
+    </script>
+  </body>
+</html>

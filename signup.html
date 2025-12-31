@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STACKLY Signup - Secure Registration</title>
+    <!-- Use a modern, technical-looking font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /*
+        ---------------------------------------------------
+        1. CSS Reset and Global Styles
+        ---------------------------------------------------
+        */
+      :root {
+        --color-dark-bg: #100e17; /* Deepest dark blue/purple */
+        --color-neon-blue: #00ffff; /* Cyan/Electric Blue */
+        --color-neon-purple: #ff00ff; /* Magenta/Fuchsia */
+        --color-text-light: #e0e0e0;
+        --color-input-bg: rgba(
+          255,
+          255,
+          255,
+          0.05
+        ); /* Semi-transparent for glass effect */
+        --transition-speed: 0.3s;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Space Mono", monospace;
+        background-color: var(--color-dark-bg);
+        color: var(--color-text-light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden; /* Prevent body scroll entirely */
+        position: relative;
+      }
+
+      /*
+        ---------------------------------------------------
+        2. Animated Background (Floating Shapes)
+        ---------------------------------------------------
+        */
+      @keyframes rotate-shape {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0.2;
+        }
+        50% {
+          transform: translate(10vw, 50vh) rotate(180deg);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg);
+          opacity: 0.2;
+        }
+      }
+
+      @keyframes float-shape {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.3;
+        animation: float-shape 6s ease-in-out infinite alternate;
+      }
+
+      .shape-1 {
+        width: 350px;
+        height: 350px;
+        top: 5%;
+        left: -10%;
+        background: radial-gradient(
+          circle,
+          var(--color-neon-blue) 0%,
+          transparent 70%
+        );
+        animation: rotate-shape 18s linear infinite,
+          float-shape 8s ease-in-out infinite alternate;
+        border-radius: 50%;
+        filter: blur(90px); /* Glowing effect */
+      }
+
+      .shape-2 {
+        width: 280px;
+        height: 280px;
+        bottom: 8%;
+        right: -10%;
+        background: radial-gradient(
+          circle,
+          var(--color-neon-purple) 0%,
+          transparent 70%
+        );
+        animation: rotate-shape 22s reverse linear infinite,
+          float-shape 10s ease-in-out infinite alternate;
+        border-radius: 50%;
+        filter: blur(90px);
+      }
+
+      /*
+        ---------------------------------------------------
+        3. Signup Card and Entrance Animation
+        ---------------------------------------------------
+        */
+      @keyframes card-slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .signup-card {
+        background: rgba(18, 16, 25, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        /* Reduced vertical padding again for tighter fit */
+        padding: 20px 35px;
+        width: 100%;
+        max-width: 450px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+        z-index: 10;
+        animation: card-slide-up 0.9s ease-out forwards;
+        max-height: 95vh; /* Increase max height tolerance */
+        /* Removed overflow-y: auto to strictly prevent scrolling */
+      }
+
+      /*
+        ---------------------------------------------------
+        4. Logo and Header
+        ---------------------------------------------------
+        */
+      .logo-text {
+        font-size: 2.2rem;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 4px;
+        margin-bottom: 5px; /* Further reduced margin */
+        color: var(--color-text-light);
+        text-shadow: 0 0 5px var(--color-neon-blue),
+          0 0 10px var(--color-neon-purple);
+      }
+
+      .card-header {
+        text-align: center;
+        font-size: 1rem;
+        color: var(--color-neon-blue);
+        margin-bottom: 15px; /* Further reduced margin */
+        text-transform: uppercase;
+      }
+
+      /*
+        ---------------------------------------------------
+        5. Form Styling and Input Focus Animation
+        ---------------------------------------------------
+        */
+      .form-group {
+        margin-bottom: 10px; /* Reduced vertical margin between fields significantly */
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px; /* Reduced label margin */
+        font-size: 0.8rem;
+        color: var(--color-neon-blue);
+        transition: color var(--transition-speed);
+      }
+
+      .signup-input {
+        width: 100%;
+        /* Reduced input padding slightly, maintaining good touch target */
+        padding: 12px 15px;
+        background: var(--color-input-bg);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: var(--color-text-light);
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+        outline: none;
+      }
+
+      .signup-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* Input focus glow animation */
+      .signup-input:focus {
+        border-color: var(--color-neon-purple);
+        box-shadow: 0 0 12px rgba(255, 0, 255, 0.6); /* Neon glow effect on focus */
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /*
+        ---------------------------------------------------
+        6. Button Styling and Hover Animation
+        ---------------------------------------------------
+        */
+      .signup-button {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        /* Reduced button padding slightly */
+        padding: 12px 15px;
+        margin-top: 10px; /* Adjusted margin */
+        font-size: 1.1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: inherit;
+
+        /* Bold Gradient Background */
+        background: linear-gradient(
+          45deg,
+          var(--color-neon-purple) 0%,
+          var(--color-neon-blue) 100%
+        );
+        color: var(--color-dark-bg);
+
+        transition: transform var(--transition-speed),
+          box-shadow var(--transition-speed);
+        z-index: 1;
+      }
+
+      /* Glass effect overlay for button hover */
+      .signup-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          /* Light streak for glass effect */ transparent
+        );
+        transition: left 0.5s ease-out;
+        z-index: 2;
+      }
+
+      /* Button hover animation: subtle lift, stronger shadow, and glass swipe */
+      .signup-button:hover {
+        transform: scale(1.01);
+        box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2),
+          0 5px 10px rgba(255, 0, 255, 0.2);
+      }
+
+      .signup-button:hover::before {
+        left: 100%; /* Slide across to the right */
+      }
+
+      /*
+        ---------------------------------------------------
+        7. Login Link and Hover Effect
+        ---------------------------------------------------
+        */
+      .login-prompt {
+        text-align: center;
+        margin-top: 15px; /* Reduced margin */
+        font-size: 0.9rem;
+        color: var(--color-text-light);
+      }
+
+      .login-link {
+        color: var(--color-neon-blue);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color var(--transition-speed),
+          text-shadow var(--transition-speed);
+      }
+
+      .login-link:hover {
+        color: var(--color-neon-purple);
+        text-shadow: 0 0 5px var(--color-neon-purple);
+      }
+
+      /*
+        ---------------------------------------------------
+        8. Mobile Responsiveness (Media Queries)
+        ---------------------------------------------------
+        */
+      @media (max-width: 600px) {
+        .signup-card {
+          padding: 15px 20px; /* Tighter padding on mobile */
+          margin: 10px;
+          max-width: 95%;
+        }
+
+        .logo-text {
+          font-size: 1.6rem; /* Smaller font for logo */
+          letter-spacing: 3px;
+          margin-bottom: 5px;
+        }
+
+        .card-header {
+          font-size: 0.75rem; /* Smaller header font */
+          margin-bottom: 10px; /* Tightened margin */
+        }
+
+        .signup-input {
+          padding: 8px 10px; /* Tighter input padding */
+          font-size: 0.85rem;
+        }
+
+        .signup-button {
+          padding: 10px;
+          font-size: 1rem;
+          margin-top: 5px;
+        }
+
+        .login-prompt {
+          font-size: 0.8rem;
+          margin-top: 10px; /* Tightened margin */
+        }
+
+        /* Adjust background shapes for smaller screens */
+        .shape-1 {
+          width: 250px;
+          height: 250px;
+          filter: blur(60px);
+        }
+        .shape-2 {
+          width: 200px;
+          height: 200px;
+          filter: blur(60px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        Animated Background Container: Contains shapes that move and glow.
+        This provides the dynamic, futuristic backdrop.
+    -->
+    <div class="background-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+
+    <!-- Main Signup Card Container -->
+    <div class="signup-card">
+      <!-- Company Logo Text -->
+      <h1 class="logo-text">STACKLY</h1>
+      <p class="card-header">Begin your secure data journey</p>
+
+      <!-- Signup Form -->
+      <form action="./404.html">
+        <div class="form-group">
+          <label for="fullName">FULL NAME</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            class="signup-input"
+            placeholder="John Stackman"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">EMAIL ADDRESS</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="signup-input"
+            placeholder="user@stackly.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">PHONE NUMBER</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            class="signup-input"
+            placeholder="(555) 555-5555"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">PASSWORD</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="signup-input"
+            placeholder="Minimum 8 characters"
+            required
+          />
+        </div>
+
+        <button type="submit" class="signup-button">CREATE ACCOUNT</button>
+      </form>
+
+      <!-- Login Link Prompt -->
+      <div class="login-prompt">
+        Already a user?
+        <a href="/login.html" class="login-link">Login</a>
+      </div>
+    </div>
+  </body>
+</html>

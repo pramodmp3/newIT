@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly | Our Innovative Products</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./product.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./files/logo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home2.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./product.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQs</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./career.html" class="nav-link-desktop">CAREERS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home2.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./product.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQs
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./career.html" class="nav-link-mobile">CAREERS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Main Content Wrapper -->
+    <main>
+      <div class="container">
+        <h1 class="animate-slide-up">STACKLY PRODUCT ECOSYSTEM</h1>
+        <div class="separator animate-slide-up" data-delay="100"></div>
+
+        <!-- Section 1: Applications Introduction -->
+        <section class="intro-section animate-slide-up" data-delay="200">
+          <h2>Innovative Applications for the Modern Enterprise</h2>
+          <p>
+            Explore Stackly's suite of powerful software applications designed
+            to streamline operations, enhance security, and drive intelligent
+            decisions across your organization. From robust cloud management
+            tools to AI-powered analytics platforms, our products are built for
+            scalability, performance, and seamless integration.
+          </p>
+        </section>
+
+        <!-- Section 2: Applications Cards Grid -->
+        <section class="app-grid">
+          <!-- Card 1 -->
+          <article class="app-card animate-slide-up" data-delay="300">
+            <img
+              src="./files/cloud.webp"
+              alt="CloudFlow application interface"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>CloudFlow Orchestrator</h3>
+                <p>
+                  Automate and manage complex multi-cloud deployments with
+                  unparalleled efficiency and visibility.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="app-card animate-slide-up" data-delay="400">
+            <img
+              src="./files/data.webp"
+              alt="DataSense analytics dashboard"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>DataSense Analytics Engine</h3>
+                <p>
+                  Leverage AI-driven insights from vast datasets to make
+                  proactive and informed business decisions.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="app-card animate-slide-up" data-delay="500">
+            <img
+              src="./files/secure.webp"
+              alt="SecureVault cybersecurity interface"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>SecureVault Defender</h3>
+                <p>
+                  Enterprise-grade cybersecurity platform with real-time threat
+                  detection and automated response.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="app-card animate-slide-up" data-delay="600">
+            <img
+              src="./files/dev.webp"
+              alt="DevOpsPilot pipeline visualization"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>DevOpsPilot CI/CD</h3>
+                <p>
+                  Accelerate your development cycle with intelligent CI/CD
+                  pipelines and automated testing.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="app-card animate-slide-up" data-delay="700">
+            <img
+              src="./files/ai.webp"
+              alt="AIConnect integration platform"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>AIConnect Platform</h3>
+                <p>
+                  Seamlessly integrate AI models into your existing applications
+                  and workflows without extensive coding.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="app-card animate-slide-up" data-delay="800">
+            <img
+              src="./files/scan.webp"
+              alt="InfraScan network diagram"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>InfraScan Auditor</h3>
+                <p>
+                  Automated infrastructure scanning for vulnerabilities and
+                  compliance adherence.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="app-card animate-slide-up" data-delay="900">
+            <img
+              src="./files/rpa.webp"
+              alt="CognitoFlow process automation"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>CognitoFlow RPA</h3>
+                <p>
+                  Robotic Process Automation to streamline repetitive tasks and
+                  boost operational efficiency.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="app-card animate-slide-up" data-delay="1000">
+            <img
+              src="./files/dash.webp"
+              alt="InsightGen report generation"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>InsightGen Reporter</h3>
+                <p>
+                  Customizable dashboard and reporting tools for real-time
+                  performance monitoring.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 9 -->
+          <article class="app-card animate-slide-up" data-delay="1100">
+            <img
+              src="./files/fire.webp"
+              alt="EdgeGuard security illustration"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>EdgeGuard Firewall</h3>
+                <p>
+                  Next-generation firewall protection for securing network
+                  perimeters and distributed assets.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 10 -->
+          <article class="app-card animate-slide-up" data-delay="1200">
+            <img
+              src="./files/quant.webp"
+              alt="QuantuML quantum machine learning"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>QuantuML Explorer</h3>
+                <p>
+                  Experimental platform for exploring quantum machine learning
+                  algorithms and simulations.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 11 -->
+          <article class="app-card animate-slide-up" data-delay="1300">
+            <img
+              src="./files/api.webp"
+              alt="APIForge API gateway"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>APIForge Gateway</h3>
+                <p>
+                  Secure and scalable API management platform for seamless
+                  application communication.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 12 -->
+          <article class="app-card animate-slide-up" data-delay="1400">
+            <img
+              src="./files/hr.webp"
+              alt="TalentHub HR platform"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>TalentHub HRMS</h3>
+                <p>
+                  Integrated Human Resources Management System for talent
+                  acquisition, payroll, and performance.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 13 -->
+          <article class="app-card animate-slide-up" data-delay="1500">
+            <img
+              src="./files/sup.webp"
+              alt="SupplyChainOpt logistics visualization"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>SupplyChain Optimizer</h3>
+                <p>
+                  AI-driven platform for optimizing logistics, inventory, and
+                  supply chain resilience.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 14 -->
+          <article class="app-card animate-slide-up" data-delay="1600">
+            <img
+              src="./files/fin.webp"
+              alt="FinFlow financial dashboard"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>FinFlow Ledger</h3>
+                <p>
+                  Decentralized financial ledger system for secure and
+                  transparent transaction management.
+                </p>
+              </div>
+              <a href="#" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 15 -->
+          <article class="app-card animate-slide-up" data-delay="1700">
+            <img
+              src="./files/vir.webp"
+              alt="VirtualWork collaboration platform"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>VirtualWork Suite</h3>
+                <p>
+                  Integrated virtual collaboration and project management tools
+                  for distributed teams.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+
+          <!-- Card 16 -->
+          <article class="app-card animate-slide-up" data-delay="1800">
+            <img
+              src="./files/hel.webp"
+              alt="HealthGuard medical record system"
+              class="app-card-image"
+            />
+            <div class="app-card-content">
+              <div>
+                <h3>HealthGuard EMR</h3>
+                <p>
+                  Secure and compliant Electronic Medical Record system for
+                  healthcare providers.
+                </p>
+              </div>
+              <a href="./404.html" class="download-btn">Download Now</a>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <footer class="main-footer" id="mainFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- 1. Logo Section -->
+          <div class="footer-section footer-logo">
+            <img
+              src="./files/logo.webp"
+              alt="Stackly Company Logo Placeholder"
+            />
+            <p>
+              Architecting the future of secure, intelligent enterprise.
+              Engineering excellence since 2013.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home2.html">Home</a></li>
+              <li><a href="./about2.html">About Us</a></li>
+              <!-- <li><a href="#">Services</a></li> -->
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./career.html">Careers</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div class="footer-section company-address">
+            <h4>Global HQ</h4>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9993;</span>
+              info@stackly.com
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9742;</span>
+              +1 (555) 123-STACK
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#127984;</span>
+              120 Broadway, Suite 300, New York, NY 10271
+            </p>
+          </div>
+
+          <!-- 5. Newsletter Subscription Form -->
+          <div class="footer-section newsletter-form">
+            <h4>Stay Ahead of the Curve</h4>
+            <form action="./404.html">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                id="newsletterEmail"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p
+              id="subscribe-status"
+              style="
+                font-size: 0.85rem;
+                margin-top: 10px;
+                color: var(--accent-light);
+              "
+            ></p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          &copy; 2025 Stackly Technologies. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Intersection Observer for Scroll Reveal Animations ---
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1 /* Trigger animation when 10% of element is visible */,
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.getAttribute("data-delay") || 0;
+
+              // Apply animated class after a short delay
+              setTimeout(() => {
+                entry.target.classList.add("animated");
+                observer.unobserve(entry.target);
+              }, delay);
+            }
+          });
+        }, observerOptions);
+
+        // Apply observer to all elements with the animation class
+        document
+          .querySelectorAll(".animate-slide-up, .app-card")
+          .forEach((el) => {
+            scrollObserver.observe(el);
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STACKLY Advanced Animated Navbar</title>
+    <!-- Use a modern, technical-looking font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./nav.css" />
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <!-- Logo and Branding -->
+      <a href="./index.html" class="logo-container">
+        <!-- FIX: Using a simple data URI for a tiny blue square to prevent 404 error -->
+        <img src="./asstes/logo.webp" alt="STACKLY Logo" class="logo-img" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links">
+        <!-- HOME (With Dropdown HOME2) -->
+        <li class="nav-item dropdown" data-dropdown-id="home">
+          <div class="nav-link-group">
+            <a href="./index.html" class="nav-link">HOME</a>
+            <button class="dropdown-toggle" data-toggle-id="home">
+              <!-- Chevron Down SVG -->
+              <svg viewBox="0 0 24 24" width="10" height="10">
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <a href="./home2.html">HOME2</a>
+          </div>
+        </li>
+
+        <!-- SOLUTIONS -->
+        <li class="nav-item dropdown" data-dropdown-id="solutions">
+          <div class="nav-link-group">
+            <a href="./sol.html" class="nav-link">SOLUTIONS</a>
+            <button class="dropdown-toggle" data-toggle-id="solutions">
+              <!-- Chevron Down SVG -->
+              <svg viewBox="0 0 24 24" width="10" height="10">
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <a href="./sap.html">SAP</a>
+            <a href="./test.html">TESTING</a>
+            <a href="./app.html">APP DEVELOPMENT</a>
+            <a href="./web.html">WEB DEVELOPMENT</a>
+          </div>
+        </li>
+
+        <!-- ABOUT -->
+        <li class="nav-item dropdown" data-dropdown-id="about">
+          <div class="nav-link-group">
+            <a href="./about.html" class="nav-link">ABOUT</a>
+            <button class="dropdown-toggle" data-toggle-id="about">
+              <!-- Chevron Down SVG -->
+              <svg viewBox="0 0 24 24" width="10" height="10">
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <a href="./about.html">ABOUT US</a>
+            <a href="./team.html">TEAM</a>
+          </div>
+        </li>
+
+        <!-- Simple Links (Desktop) -->
+        <li class="nav-item">
+          <div class="nav-link-group">
+            <a href="./blog.html" class="nav-link">BLOG</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-group">
+            <a href="./dash.html" class="nav-link">DASHBOARD</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-group">
+            <a href="./contact.html" class="nav-link">CONTACT</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="/login.html" class="cta-button">LOGIN</a>
+
+      <!-- Custom Mobile Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+      </div>
+
+      <!-- Mobile Menu Overlay (Hidden on Desktop) -->
+      <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <ul class="mobile-nav-list">
+          <!-- HOME (Mobile) -->
+          <li
+            class="mobile-nav-item dropdown-mobile"
+            data-dropdown-id="home-mobile"
+          >
+            <div class="mobile-link-group">
+              <a href="./index.html" class="mobile-nav-link">HOME</a>
+              <button class="dropdown-toggle" data-toggle-id="home-mobile">
+                <!-- Chevron Down SVG -->
+                <svg viewBox="0 0 24 24" width="15" height="15">
+                  <path
+                    d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-dropdown-content">
+              <li><a href="./home2.html">HOME2</a></li>
+            </ul>
+          </li>
+
+          <!-- SOLUTIONS (Mobile) -->
+          <li
+            class="mobile-nav-item dropdown-mobile"
+            data-dropdown-id="solutions-mobile"
+          >
+            <div class="mobile-link-group">
+              <a href="./sol.html" class="mobile-nav-link">SOLUTIONS</a>
+              <button class="dropdown-toggle" data-toggle-id="solutions-mobile">
+                <!-- Chevron Down SVG -->
+                <svg viewBox="0 0 24 24" width="15" height="15">
+                  <path
+                    d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-dropdown-content">
+              <li><a href="./sap.html">SAP</a></li>
+              <li><a href="./test.html">TESTING</a></li>
+              <li><a href="./app.html">APP DEVELOPMENT</a></li>
+              <li><a href="./web.html">WEB DEVELOPMENT</a></li>
+            </ul>
+          </li>
+
+          <!-- ABOUT (Mobile) -->
+          <li
+            class="mobile-nav-item dropdown-mobile"
+            data-dropdown-id="about-mobile"
+          >
+            <div class="mobile-link-group">
+              <a href="./about.html" class="mobile-nav-link">ABOUT</a>
+              <button class="dropdown-toggle" data-toggle-id="about-mobile">
+                <!-- Chevron Down SVG -->
+                <svg viewBox="0 0 24 24" width="15" height="15">
+                  <path
+                    d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-dropdown-content">
+              <li><a href="./about.html">ABOUT US</a></li>
+              <li><a href="./team.html">TEAM</a></li>
+            </ul>
+          </li>
+
+          <!-- Simple Links (Mobile) -->
+          <li class="mobile-nav-item">
+            <div class="mobile-link-group">
+              <a href="./blog.html" class="mobile-nav-link">BLOG</a>
+            </div>
+          </li>
+          <li class="mobile-nav-item">
+            <div class="mobile-link-group">
+              <a href="./dash.html" class="mobile-nav-link">DASHBOARD</a>
+            </div>
+          </li>
+          <li class="mobile-nav-item">
+            <div class="mobile-link-group">
+              <a href="./contact.html" class="mobile-nav-link">CONTACT</a>
+            </div>
+          </li>
+
+          <li class="mobile-nav-item mobile-cta">
+            <a
+              href="/login.html"
+              class="cta-button"
+              style="width: 100%; display: block"
+              >LOGIN</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <script src="./nav.js"></script>
+  </body>
+</html>

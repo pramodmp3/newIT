@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly | About Us & Vision</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+   <link rel="stylesheet" href="./about2.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./files/logo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home2.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./product.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQs</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./career.html" class="nav-link-desktop">CAREERS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home2.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./product.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQs
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./career.html" class="nav-link-mobile">CAREERS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Main Content Wrapper -->
+    <main>
+      <div class="container">
+        <h1 class="animate-slide-up">ABOUT STACKLY</h1>
+        <div class="separator animate-slide-up" data-delay="100"></div>
+
+        <!-- Section 1: Company History Overview (New Section) -->
+        <section>
+          <h2 class="animate-slide-up" data-delay="200">Our Origin Story</h2>
+          <div class="history-container">
+            <!-- New Image Added -->
+            <img
+              src="./files/about1.webp"
+              alt="Stackly founders in an initial brainstorming session"
+              class="history-image animate-slide-up"
+              data-delay="300"
+            />
+            <div class="history-overview animate-slide-up" data-delay="400">
+              <p>
+                Stackly began in 2015 with a simple yet ambitious goal: to streamline complex cloud infrastructure for the burgeoning tech industry. Founded by a small team of engineers in a New York City incubator, our early years were defined by rapid learning and a relentless focus on creating modular, scalable deployment tools. This foundation of agility and technical excellence quickly propelled us beyond startups toward large enterprise contracts. Our history is a testament to continuous evolution—from cloud specialists to integrated AI and security partners, guided by our commitment to engineering excellence and client empowerment.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Vision & Mission -->
+        <section>
+          <h2 class="animate-slide-up" data-delay="500">Our North Star</h2>
+          <div class="vision-mission-grid animate-slide-up" data-delay="600">
+            <div class="vision-mission-card">
+              <span class="vm-icon">&#128065;</span> <!-- Eye/Vision Icon -->
+              <h3>Our Vision</h3>
+              <p>
+                To be the foundational technology partner for global enterprises,
+                driving secure, intelligent, and scalable digital transformation
+                through next-generation cloud and AI solutions.
+              </p>
+            </div>
+            <div class="vision-mission-card">
+              <span class="vm-icon">&#128640;</span> <!-- Rocket/Mission Icon -->
+              <h3>Our Mission</h3>
+              <p>
+                To empower our clients to achieve unprecedented levels of
+                efficiency and innovation by architecting and deploying resilient,
+                future-proof IT ecosystems tailored to their specific market demands.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Core Values (Adjusted to 5 cards) -->
+        <section>
+          <h2 class="animate-slide-up" data-delay="700">Core Values</h2>
+          <div class="values-grid">
+            <div class="value-card animate-slide-up" data-delay="800">
+              <span class="value-card-icon">&#128172;</span>
+              <h4>Radical Transparency</h4>
+              <p>Openness in communication and pricing ensures trust.</p>
+            </div>
+            <div class="value-card animate-slide-up" data-delay="900">
+              <span class="value-card-icon">&#128640;</span>
+              <h4>Engineering Excellence</h4>
+              <p>Commitment to the highest standards of code quality and architecture.</p>
+            </div>
+            <div class="value-card animate-slide-up" data-delay="1000">
+              <span class="value-card-icon">&#128293;</span>
+              <h4>Continuous Innovation</h4>
+              <p>Always pushing boundaries in AI, Cloud, and security technologies.</p>
+            </div>
+            <div class="value-card animate-slide-up" data-delay="1100">
+              <span class="value-card-icon">&#128170;</span>
+              <h4>Client Empowerment</h4>
+              <p>Ensuring our clients are equipped to manage and evolve their systems.</p>
+            </div>
+            <div class="value-card animate-slide-up" data-delay="1200">
+              <span class="value-card-icon">&#127760;</span>
+              <h4>Global Responsibility</h4>
+              <p>Building sustainable and ethical technology for a better future.</p>
+            </div>
+            <!-- The sixth value card was removed in the last step -->
+          </div>
+        </section>
+
+        <!-- Section 4: Company History Timeline -->
+        <section>
+          <h2 class="animate-slide-up" data-delay="1300">Our Journey</h2>
+          <div class="timeline">
+            <!-- Timeline Item 1 (Left) -->
+            <div class="timeline-item animate-slide-up" data-delay="1400">
+              <div class="timeline-content">
+                <h4>2015: Inception & Seed Funding</h4>
+                <p>
+                  Stackly founded in a small New York City incubator with a focus
+                  on modular cloud deployment for startups. Secured initial seed funding.
+                </p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 (Right) -->
+            <div class="timeline-item animate-slide-up" data-delay="1500">
+              <div class="timeline-content">
+                <h4>2018: Enterprise Pivot & London Hub</h4>
+                <p>
+                  Shifted focus to large enterprise clients and established our
+                  European Headquarters in London to manage expanding global demand.
+                </p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 (Left) -->
+            <div class="timeline-item animate-slide-up" data-delay="1600">
+              <div class="timeline-content">
+                <h4>2021: AI/ML Specialization Launch</h4>
+                <p>
+                  Launched our dedicated Artificial Intelligence and Machine
+                  Learning solutions division, integrating advanced predictive
+                  analytics into enterprise resource planning.
+                </p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 4 (Right) -->
+            <div class="timeline-item animate-slide-up" data-delay="1700">
+              <div class="timeline-content">
+                <h4>2023: Zero Trust Security Framework</h4>
+                <p>
+                  Completed full migration of all client services to a mandatory
+                  Zero Trust security model, setting a new benchmark for IT security in the sector.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Timeline Item 5 (Left) -->
+            <div class="timeline-item animate-slide-up" data-delay="1800">
+              <div class="timeline-content">
+                <h4>2025: Global Expansion to APAC</h4>
+                <p>
+                  Opened new offices in Singapore and Dubai, completing our global
+                  coverage and establishing a firm foothold in the APAC and Middle Eastern markets.
+                </p>
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+<footer class="main-footer" id="mainFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- 1. Logo Section -->
+          <div class="footer-section footer-logo">
+            <img
+              src="./files/logo.webp"
+              alt="Stackly Company Logo Placeholder"
+            />
+            <p>
+              Architecting the future of secure, intelligent enterprise.
+              Engineering excellence since 2013.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home2.html">Home</a></li>
+              <li><a href="./about2.html">About Us</a></li>
+              <!-- <li><a href="#">Services</a></li> -->
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./career.html">Careers</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div class="footer-section company-address">
+            <h4>Global HQ</h4>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9993;</span>
+              info@stackly.com
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9742;</span>
+              +1 (555) 123-STACK
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#127984;</span>
+              120 Broadway, Suite 300, New York, NY 10271
+            </p>
+          </div>
+
+          <!-- 5. Newsletter Subscription Form -->
+          <div class="footer-section newsletter-form">
+            <h4>Stay Ahead of the Curve</h4>
+            <form action="./404.html">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                id="newsletterEmail"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p
+              id="subscribe-status"
+              style="
+                font-size: 0.85rem;
+                margin-top: 10px;
+                color: var(--accent-light);
+              "
+            ></p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          &copy; 2025 Stackly Technologies. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Intersection Observer for Scroll Reveal Animations ---
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1 /* Trigger animation when 10% of element is visible */
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.getAttribute('data-delay') || 0;
+              
+              // Apply animated class after a short delay
+              setTimeout(() => {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+              }, delay);
+            }
+          });
+        }, observerOptions);
+
+        // Apply observer to all elements with the animation class
+        document.querySelectorAll('.animate-slide-up, .timeline-item').forEach(el => {
+          scrollObserver.observe(el);
+        });
+        
+        // --- Timeline Specific Fix for Mobile MaxHeight ---
+      });
+    </script>
+  </body>
+</html>

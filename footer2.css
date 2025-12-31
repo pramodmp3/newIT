@@ -1,0 +1,257 @@
+/* --- 1. Variables and Global Styles --- */
+:root {
+  --primary-bg: #111122; /* Very Deep Indigo */
+  --secondary-bg: #070710; /* Near Black */
+  --accent-color: #8a2be2; /* Blue Violet */
+  --accent-glow: #8a2be280; /* Semi-transparent glow */
+  --accent-light: #a290e7; /* Lighter Violet */
+  --text-color: #f0f0f5; /* Off-white */
+  --product-cta-color: #4caf50; /* Distinct Green for success */
+  --font-family: "Inter", sans-serif;
+  --transition-speed: 0.4s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  /* Simulate a page background behind the footer */
+  background: radial-gradient(
+      circle at top left,
+      var(--primary-bg) 0%,
+      var(--secondary-bg) 100%
+    )
+    no-repeat;
+  color: var(--text-color);
+  min-height: 200vh; /* Ensure scrollability for JS animation demo */
+  padding-top: 100vh; /* Push content down to show scroll animation */
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color var(--transition-speed),
+    padding-left var(--transition-speed);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- 2. Footer Section Styling --- */
+.main-footer {
+  background-color: var(--primary-bg);
+  padding: 4rem 0 2rem 0;
+  border-top: 3px solid var(--accent-color);
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+
+  /* JS Scroll Animation Base State */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.main-footer.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 2fr; /* 4-column layout */
+  gap: 3rem;
+  padding-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: var(--accent-light);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 10px;
+}
+
+/* 1. Logo and Tagline */
+.footer-logo img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
+  /* filter: drop-shadow(0 0 5px var(--accent-glow)); */
+}
+.footer-logo p {
+  font-size: 0.9rem;
+  color: rgba(234, 234, 234, 0.7);
+  line-height: 1.6;
+}
+
+/* 2. Quick Links */
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+.quick-links ul li {
+  margin-bottom: 0.5rem;
+}
+.quick-links a {
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+}
+.quick-links a:hover {
+  color: var(--accent-color);
+  padding-left: 8px; /* Slide effect on hover */
+}
+.quick-links a::before {
+  content: "—";
+  margin-right: 5px;
+  color: var(--accent-color);
+  opacity: 0;
+  transition: opacity var(--transition-speed),
+    margin-right var(--transition-speed);
+}
+.quick-links a:hover::before {
+  opacity: 1;
+  margin-right: 2px;
+}
+
+/* 3. Address */
+.company-address p {
+  margin-bottom: 1rem;
+  color: rgba(234, 234, 234, 0.8);
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+.company-address span {
+  margin-right: 10px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  line-height: 1.5; /* Ensure icon aligns with text */
+}
+
+/* 4. Social Icons (Using simple Unicode/Entities) */
+.social-icons {
+  margin-top: 1.5rem;
+}
+.social-icons a {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-right: 1.2rem;
+  color: var(--text-color);
+  transition: transform var(--transition-speed), color var(--transition-speed),
+    text-shadow var(--transition-speed);
+}
+.social-icons a:hover {
+  color: var(--accent-color);
+  transform: scale(1.25); /* Scale effect on hover */
+  text-shadow: 0 0 15px var(--accent-glow); /* Glowing effect */
+}
+
+/* 5. Newsletter Form */
+.newsletter-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.newsletter-form input[type="email"] {
+  padding: 12px;
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  border-radius: 8px;
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: box-shadow var(--transition-speed),
+    border-color var(--transition-speed);
+}
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 15px var(--accent-glow); /* Glowing border on focus */
+}
+.newsletter-form button {
+  padding: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+
+  /* Button Hover Animation */
+  background: linear-gradient(90deg, var(--accent-color), #6c32c4);
+  color: var(--text-color);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.newsletter-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(138, 43, 226, 0.7);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
+  font-size: 0.85rem;
+  color: rgba(234, 234, 234, 0.6);
+}
+
+/* --- 3. Footer Media Queries --- */
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2-column layout on tablet */
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* 1-column stacked layout on mobile */
+    gap: 1.5rem;
+  }
+  .footer-section h4 {
+    margin-top: 1rem;
+  }
+  /* Center content when stacked on mobile */
+  .footer-logo,
+  .quick-links,
+  .company-address,
+  .newsletter-form {
+    text-align: center;
+  }
+  .footer-logo img {
+    margin: 0 auto 1rem auto;
+    display: block;
+  }
+  .quick-links ul {
+    text-align: center;
+  }
+  .quick-links a:hover {
+    padding-left: 0;
+  }
+  .quick-links a::before {
+    display: none;
+  }
+  .company-address p {
+    justify-content: center;
+  }
+  .social-icons {
+    text-align: center;
+  }
+  .newsletter-form form {
+    align-items: center;
+  }
+  .newsletter-form input[type="email"],
+  .newsletter-form button {
+    width: 90%;
+    max-width: 300px;
+  }
+}

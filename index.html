@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>STACKLY | High-Consequence Digital Architecture</title>
+    <!-- Editorial Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./it1.css" />
+  </head>
+  <body>
+    <div class="film-grain"></div>
+    <div class="vignette"></div>
+
+    <!-- TERMINAL LOADER -->
+    <div id="loader">
+      <div class="loader-terminal">
+        <div class="loader-logo">STACKLY</div>
+        <div id="terminalBody">
+          <div class="terminal-line">> initializing_stackly_kernel...</div>
+        </div>
+        <span class="terminal-cursor"></span>
+      </div>
+    </div>
+    <!-- 
+    <nav>
+      <div class="logo">STACKLY</div>
+      <div
+        style="
+          font-size: 0.6rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        "
+      >
+        Directory
+      </div>
+    </nav> -->
+    <nav class="navbar" id="navbar">
+      <!-- Logo and Branding -->
+      <a href="./index.html" class="logo-container">
+        <!-- FIX: Using a simple data URI for a tiny blue square to prevent 404 error -->
+        <img src="./asstes/logooo.webp" alt="STACKLY Logo" class="logo-img" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links">
+        <!-- HOME (With Dropdown HOME2) -->
+        <li class="nav-item dropdown" data-dropdown-id="home">
+          <div class="nav-link-group">
+            <a href="./index.html" class="nav-link">HOME</a>
+            <button class="dropdown-toggle" data-toggle-id="home">
+              <!-- Chevron Down SVG -->
+              <svg viewBox="0 0 24 24" width="10" height="10">
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <a href="./home2.html">HOME2</a>
+          </div>
+        </li>
+
+        <!-- SOLUTIONS -->
+        <li class="nav-item dropdown" data-dropdown-id="solutions">
+          <div class="nav-link-group">
+            <a href="./sol.html" class="nav-link">SOLUTIONS</a>
+            <button class="dropdown-toggle" data-toggle-id="solutions">
+              <!-- Chevron Down SVG -->
+              <svg viewBox="0 0 24 24" width="10" height="10">
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <a href="./sap.html">SAP</a>
+            <a href="./test.html">TESTING</a>
+            <a href="./app.html">APP DEVELOPMENT</a>
+            <a href="./web.html">WEB DEVELOPMENT</a>
+          </div>
+        </li>
+
+        <!-- ABOUT -->
+        <li class="nav-item dropdown" data-dropdown-id="about">
+          <div class="nav-link-group">
+            <a href="./about.html" class="nav-link">ABOUT</a>
+            <button class="dropdown-toggle" data-toggle-id="about">
+              <!-- Chevron Down SVG -->
+              <svg viewBox="0 0 24 24" width="10" height="10">
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <a href="./about.html">ABOUT US</a>
+            <a href="./team.html">TEAM</a>
+          </div>
+        </li>
+
+        <!-- Simple Links (Desktop) -->
+        <li class="nav-item">
+          <div class="nav-link-group">
+            <a href="./blog.html" class="nav-link">BLOG</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-group">
+            <a href="./dash.html" class="nav-link">DASHBOARD</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-group">
+            <a href="./contact.html" class="nav-link">CONTACT</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="./login.html" class="cta-button">LOGIN</a>
+
+      <!-- Custom Mobile Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+      </div>
+
+      <!-- Mobile Menu Overlay (Hidden on Desktop) -->
+      <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <ul class="mobile-nav-list">
+          <!-- HOME (Mobile) -->
+          <li
+            class="mobile-nav-item dropdown-mobile"
+            data-dropdown-id="home-mobile"
+          >
+            <div class="mobile-link-group">
+              <a href="./index.html" class="mobile-nav-link">HOME</a>
+              <button class="dropdown-toggle" data-toggle-id="home-mobile">
+                <!-- Chevron Down SVG -->
+                <svg viewBox="0 0 24 24" width="15" height="15">
+                  <path
+                    d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-dropdown-content">
+              <li><a href="./home2.html">HOME2</a></li>
+            </ul>
+          </li>
+
+          <!-- SOLUTIONS (Mobile) -->
+          <li
+            class="mobile-nav-item dropdown-mobile"
+            data-dropdown-id="solutions-mobile"
+          >
+            <div class="mobile-link-group">
+              <a href="./sol.html" class="mobile-nav-link">SOLUTIONS</a>
+              <button class="dropdown-toggle" data-toggle-id="solutions-mobile">
+                <!-- Chevron Down SVG -->
+                <svg viewBox="0 0 24 24" width="15" height="15">
+                  <path
+                    d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-dropdown-content">
+              <li><a href="./sap.html">SAP</a></li>
+              <li><a href="./test.html">TESTING</a></li>
+              <li><a href="./app.html">APP DEVELOPMENT</a></li>
+              <li><a href="./web.html">WEB DEVELOPMENT</a></li>
+            </ul>
+          </li>
+
+          <!-- ABOUT (Mobile) -->
+          <li
+            class="mobile-nav-item dropdown-mobile"
+            data-dropdown-id="about-mobile"
+          >
+            <div class="mobile-link-group">
+              <a href="./about.html" class="mobile-nav-link">ABOUT</a>
+              <button class="dropdown-toggle" data-toggle-id="about-mobile">
+                <!-- Chevron Down SVG -->
+                <svg viewBox="0 0 24 24" width="15" height="15">
+                  <path
+                    d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-dropdown-content">
+              <li><a href="./about.html">ABOUT US</a></li>
+              <li><a href="./team.html">TEAM</a></li>
+            </ul>
+          </li>
+
+          <!-- Simple Links (Mobile) -->
+          <li class="mobile-nav-item">
+            <div class="mobile-link-group">
+              <a href="./blog.html" class="mobile-nav-link">BLOG</a>
+            </div>
+          </li>
+          <li class="mobile-nav-item">
+            <div class="mobile-link-group">
+              <a href="./dash.html" class="mobile-nav-link">DASHBOARD</a>
+            </div>
+          </li>
+          <li class="mobile-nav-item">
+            <div class="mobile-link-group">
+              <a href="./contact.html" class="mobile-nav-link">CONTACT</a>
+            </div>
+          </li>
+
+          <li class="mobile-nav-item mobile-cta">
+            <a
+              href="./login.html"
+              class="cta-button"
+              style="width: 100%; display: block"
+              >LOGIN</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-video-container" id="heroVideo">
+        <!-- Replacing static background with a video -->
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?auto=format&fit=crop&q=80&w=2000"
+        >
+          <source src="./asstes/hero11.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="container hero-content">
+        <span class="tag reveal" style="transition-delay: 0.1s"
+          >Est. MMXII • Global Architecture</span
+        >
+        <h1 class="reveal" style="transition-delay: 0.3s">
+          Technology <br /><em>without</em> error.
+        </h1>
+        <p
+          class="reveal"
+          style="
+            transition-delay: 0.5s;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+          "
+        >
+          We partner with institutional leaders to engineer the infrastructure
+          of the next century. AI, Software, and Strategy for the world's most
+          critical systems.
+        </p>
+        <div class="reveal" style="transition-delay: 0.7s; margin-top: 40px">
+          <a href="./404.html" class="btn">Begin Transition</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee">
+      <div class="marquee-track">
+        <div class="marquee-item">NVIDIA</div>
+        <div class="marquee-item">SPACEX</div>
+        <div class="marquee-item">J.P. MORGAN</div>
+        <div class="marquee-item">APPLE</div>
+        <div class="marquee-item">LOCKHEED MARTIN</div>
+        <div class="marquee-item">BLACKROCK</div>
+        <div class="marquee-item">ALPHABET</div>
+        <div class="marquee-item">NVIDIA</div>
+        <div class="marquee-item">SPACEX</div>
+        <div class="marquee-item">J.P. MORGAN</div>
+        <div class="marquee-item">APPLE</div>
+        <div class="marquee-item">LOCKHEED MARTIN</div>
+        <div class="marquee-item">BLACKROCK</div>
+        <div class="marquee-item">ALPHABET</div>
+      </div>
+    </div>
+
+    <!-- Chapter 01: The Philosophy -->
+    <section>
+      <div class="container editorial-grid">
+        <div class="shutter-image-wrapper reveal" style="aspect-ratio: 4/5">
+          <img
+            src="./asstes/IT1.jpg"
+            class="shutter-img"
+            alt="Architectural shot"
+          />
+        </div>
+        <div>
+          <span class="tag reveal">Chapter 01 — Philosophy</span>
+          <h2
+            class="reveal"
+            style="
+              font-family: 'Playfair Display', serif;
+              font-size: 2.8rem;
+              margin-bottom: 30px;
+            "
+          >
+            Architecture over <br />Appearance.
+          </h2>
+          <p
+            class="reveal"
+            style="color: var(--text-muted); margin-bottom: 25px"
+          >
+            In an era of disposable software, we build for permanence. Our
+            methodology is rooted in the belief that digital systems should be
+            as robust as physical infrastructure.
+          </p>
+          <p class="reveal" style="color: var(--text-muted)">
+            From sub-millisecond trading engines to globally distributed AI
+            nodes, we specialize in environments where failure is not a
+            statistical possibility.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-strip">
+      <div class="stat-box reveal">
+        <span class="stat-num" data-target="99">0</span>
+        <span class="stat-label">System Integrity %</span>
+      </div>
+      <div class="stat-box reveal">
+        <span class="stat-num" data-target="12">0</span>
+        <span class="stat-label">Years of Operation</span>
+      </div>
+      <div class="stat-box reveal">
+        <span class="stat-num" data-target="450">0</span>
+        <span class="stat-label">Global Engineers</span>
+      </div>
+      <div class="stat-box reveal">
+        <span class="stat-num" data-target="10">0</span>
+        <span class="stat-label">Fortune 50 Clients</span>
+      </div>
+    </div>
+
+    <!-- Chapter 02: Deployment -->
+    <section style="background: #080808">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 80px">
+          <span class="tag reveal">Chapter 02 — Deployment</span>
+          <h2
+            class="reveal"
+            style="font-family: 'Playfair Display', serif; font-size: 3rem"
+          >
+            Strategic Operations
+          </h2>
+        </div>
+
+        <div class="editorial-grid">
+          <div>
+            <div class="protocol-item reveal">
+              <span class="protocol-num">01</span>
+              <div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px">
+                  Deep Discovery
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted)">
+                  We audit existing legacy structures to identify systemic
+                  vulnerabilities and scaling bottlenecks.
+                </p>
+              </div>
+            </div>
+            <div class="protocol-item reveal">
+              <span class="protocol-num">02</span>
+              <div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px">
+                  Core Engineering
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted)">
+                  Development of low-latency, high-availability kernels tailored
+                  to your specific industrial load.
+                </p>
+              </div>
+            </div>
+            <div class="protocol-item reveal">
+              <span class="protocol-num">03</span>
+              <div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px">
+                  AI Augmentation
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted)">
+                  Integration of proprietary intelligence models that optimize
+                  operational flow in real-time.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="shutter-image-wrapper reveal" style="aspect-ratio: 16/10">
+            <img
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000"
+              class="shutter-img"
+              alt="Digital globe"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study Spotlight -->
+    <section>
+      <div class="container">
+        <div
+          class="shutter-image-wrapper reveal"
+          style="width: 100%; aspect-ratio: 21/9; margin-bottom: 40px"
+        >
+          <img src="./asstes/it2.png" class="shutter-img" />
+        </div>
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+          "
+        >
+          <div style="max-width: 600px">
+            <span class="tag reveal">Spotlight Case</span>
+            <h2
+              class="reveal"
+              style="font-family: 'Playfair Display', serif; font-size: 2.5rem"
+            >
+              Project Black-Box
+            </h2>
+            <p
+              class="reveal"
+              style="color: var(--text-muted); margin-top: 20px"
+            >
+              A complete overhaul of the transaction processing layer for a
+              Tier-1 financial institution, reducing latency by 42% while
+              increasing security redundancy across three continents.
+            </p>
+          </div>
+          <div class="reveal">
+            <a href="./404.html" class="btn">View Blueprint</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Briefings (FAQ) -->
+    <section style="background: #020202">
+      <div class="container" style="max-width: 800px">
+        <h2
+          class="reveal"
+          style="
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 60px;
+          "
+        >
+          Institutional Briefings
+        </h2>
+        <div
+          class="protocol-item reveal"
+          style="border-bottom: 1px solid var(--border)"
+        >
+          <span class="protocol-num">Q.</span>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 10px">
+              Security & Compliance Protocols?
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted)">
+              We operate under the highest levels of international data
+              security, providing full SOC2 Type II and GDPR compliance for all
+              infrastructure deployments.
+            </p>
+          </div>
+        </div>
+        <div
+          class="protocol-item reveal"
+          style="border-bottom: 1px solid var(--border)"
+        >
+          <span class="protocol-num">Q.</span>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 10px">
+              Global Maintenance?
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted)">
+              Our Site Reliability Engineers (SREs) are distributed globally,
+              ensuring 24/7/365 active monitoring and sub-minute response times
+              for critical incidents.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      style="
+        padding: 120px 24px;
+        text-align: center;
+        border-top: 1px solid var(--border);
+      "
+    >
+      <div class="container">
+        <h2
+          class="reveal"
+          style="
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+          "
+        >
+          Infallibility is a choice.
+        </h2>
+        <a href="./404.html" class="btn reveal">Contact Architecture Office</a>
+        <div
+          style="
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+          "
+        >
+          <span>London</span>
+          <span>Zurich</span>
+          <span>Singapore</span>
+          <span>NYC</span>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-main-content">
+        <!-- 1. Company Logo & Tagline -->
+        <div class="footer-section logo-section">
+          <a href="./index.html" class="logo-group">
+            <!-- Placeholder Logo Image (tiny blue square data URI) --><img
+              src="./asstes/logooo.webp"
+              alt="STACKLY Logo"
+              class="logo-img"
+            />
+          </a>
+          <p class="tagline">
+            Future-proof solutions for tomorrow's technology landscape.
+          </p>
+        </div>
+
+        <!-- 2. Quick Links -->
+        <div class="footer-section links-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="quick-links">
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./sol.html">SOLUTIONS</a></li>
+            <li><a href="./about.html">ABOUT</a></li>
+            <li><a href="./contact.html">CONTACT</a></li>
+            <li><a href="./blog.html">BLOG</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. Company Address -->
+        <div class="footer-section address-section">
+          <h3 class="footer-title">Our Hub</h3>
+          <div class="address-info">
+            <p>STACKLY Technologies HQ</p>
+            <p>101 Server Avenue, Cyber City</p>
+            <p>90210 Protocol Lane, CA</p>
+            <p>info@stackly.com</p>
+          </div>
+        </div>
+
+        <!-- 4. Follow Us Section -->
+        <div class="footer-section social-section">
+          <h3 class="footer-title">Follow the Data Stream</h3>
+          <div class="social-icons">
+            <!-- Facebook SVG (Solid F) --><a
+              href="./404.html"
+              class="social-link"
+              aria-label="Facebook"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M14 12H17V15H14V24H10V15H7V12H10V9C10 5.484 11.967 4 14.867 4H17V0H14.867C11.16 0 9 2.115 9 6.27V9H7V12H9V24H14V12Z"
+                />
+              </svg>
+            </a>
+            <!-- Instagram SVG (Classic Camera/Box) --><a
+              href="./404.html"
+              class="social-link"
+              aria-label="Instagram"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M7 2H17C19.7614 2 22 4.23858 22 7V17C22 19.7614 19.7614 22 17 22H7C4.23858 22 2 19.7614 2 17V7C2 4.23858 4.23858 2 7 2ZM7 4C5.34315 4 4 5.34315 4 7V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V7C20 5.34315 18.6569 4 17 4H7ZM12 7.5C14.4853 7.5 16.5 9.51472 16.5 12C16.5 14.4853 14.4853 16.5 12 16.5C9.51472 16.5 7.5 14.4853 7.5 12C7.5 9.51472 9.51472 7.5 12 7.5ZM12 9.5C10.6193 9.5 9.5 10.6193 9.5 12C9.5 13.3807 10.6193 14.5 12 14.5C13.3807 14.5 14.5 13.3807 14.5 12C14.5 10.6193 13.3807 9.5 12 9.5ZM17.5 6.5C17.5 7.05228 17.0523 7.5 16.5 7.5C15.9477 7.5 15.5 7.05228 15.5 6.5C15.5 5.94772 15.9477 5.5 16.5 5.5C17.0523 5.5 17.5 5.94772 17.5 6.5Z"
+                />
+              </svg>
+            </a>
+            <!-- LinkedIn SVG (Standard L) --><a
+              href="./404.html"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M20 2H4C2.9 2 2 2.9 2 4v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 19H5V8h3v11zm11 0h-3v-4.5c0-1.24-.97-2.25-2.2-2.25-1.24 0-1.8.84-2.22 1.5V19h-3V8h3v1.5c.37-.58 1.05-1.5 2.7-1.5 1.94 0 3.3 1.36 3.3 4.25V19z"
+                />
+              </svg>
+            </a>
+            <!-- Twitter SVG (Solid Bird) --><a
+              href="./404.html"
+              class="social-link"
+              aria-label="Twitter"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M18.9 4.88c-.687.307-1.428.513-2.2.61.792-.472 1.398-1.22 1.683-2.12-.74.437-1.56.75-2.433.92-.7-.745-1.696-1.21-2.798-1.21-2.112 0-3.824 1.712-3.824 3.824 0 .3.033.593.1.874-3.178-.16-5.99-1.68-7.874-4.22-.328.56-.516 1.21-.516 1.91 0 1.326.674 2.502 1.7 3.18-.625-.02-1.21-.19-1.72-.47v.048c0 1.85 1.317 3.39 3.06 3.73-.314.085-.646.13-1.002.13-.243 0-.477-.024-.71-.07.485 1.52 1.897 2.63 3.56 2.66-1.308 1.026-2.95 1.636-4.743 1.636-.308 0-.613-.018-.916-.053 1.69 1.08 3.69 1.716 5.86 1.716 7.03 0 10.86-5.81 10.86-10.86 0-.166-.003-.332-.01-.497.755-.544 1.405-1.22 1.92-2.005z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- End footer-main-content --><!-- 7. Newsletter Subscription -->
+      <div class="newsletter-section">
+        <h3 class="footer-title">Subscribe to our Newsletter</h3>
+        <form class="subscribe-form" action="./404.html">
+          <input
+            type="email"
+            class="email-input"
+            placeholder="Enter your email address for updates"
+            required
+          />
+          <button type="submit" class="subscribe-button">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- 8. Footer Bottom (Copyright) -->
+      <div class="footer-bottom">
+        <span>&copy; 2023 STACKLY. All rights reserved.</span>
+      </div>
+    </footer>
+    <script src="./nit.js"></script>
+    <script>
+      // 1. TERMINAL LOADER SEQUENCE
+      const terminalCommands = [
+        "> connection_established: 10.0.4.1",
+        "> mounting_neural_drive...",
+        "> kernel_status: optimal",
+        "> protocol_handshake: [SECURE]",
+        "> loading_stackly_env...",
+        "> rendering_interface...",
+      ];
+
+      window.addEventListener("load", () => {
+        const body = document.getElementById("terminalBody");
+        let i = 0;
+
+        const typeCommand = () => {
+          if (i < terminalCommands.length) {
+            const line = document.createElement("div");
+            line.className = "terminal-line";
+            line.innerText = terminalCommands[i];
+            body.appendChild(line);
+            i++;
+            setTimeout(typeCommand, 350);
+          } else {
+            // Complete
+            setTimeout(() => {
+              const loader = document.getElementById("loader");
+              loader.style.transform = "translateY(-100%)";
+              setTimeout(() => {
+                const heroVid = document.getElementById("heroVideo");
+                if (heroVid) heroVid.style.transform = "scale(1.0)";
+              }, 800);
+            }, 500);
+          }
+        };
+
+        setTimeout(typeCommand, 500);
+      });
+
+      // 2. AGGRESSIVE INTERSECTION OBSERVER
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Log to console so you can see if it's working (Press F12 to check)
+            if (entry.isIntersecting) {
+              console.log("Element visible:", entry.target);
+              entry.target.classList.add("active");
+
+              const num = entry.target.querySelector(".stat-num");
+              if (num) animateStat(num);
+
+              // Stop observing once visible to save performance
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.05, // Trigger as soon as 5% of the image is on screen
+          rootMargin: "0px 0px -50px 0px", // Trigger slightly before it enters the viewport
+        }
+      );
+
+      // Apply to all items
+      document
+        .querySelectorAll(".reveal, .shutter-image-wrapper, .protocol-item")
+        .forEach((el) => {
+          revealObserver.observe(el);
+        });
+
+      // 3. STAT ANIMATOR
+      function animateStat(el) {
+        if (el.dataset.started) return;
+        el.dataset.started = "true";
+        const target = parseInt(el.dataset.target);
+        let current = 0;
+        const duration = 2000;
+        const step = target / (duration / 16);
+
+        function counter() {
+          current += step;
+          if (current < target) {
+            el.innerText = Math.floor(current);
+            requestAnimationFrame(counter);
+          } else {
+            el.innerText = target;
+          }
+        }
+        counter();
+      }
+
+      // 4. SUBTLE PARALLAX (Updated for video)
+      window.addEventListener("scroll", () => {
+        const scroll = window.pageYOffset;
+        const heroVid = document.getElementById("heroVideo");
+        if (heroVid)
+          heroVid.style.transform = `scale(1) translateY(${scroll * 0.15}px)`;
+      });
+    </script>
+  </body>
+</html>

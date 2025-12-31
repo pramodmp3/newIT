@@ -1,0 +1,1145 @@
+/*
+        ---------------------------------------------------
+        1. CSS Reset and Global Styles (STACKLY Theme)
+        ---------------------------------------------------
+        */
+:root {
+  --color-dark-bg: #100e17; /* Deepest dark blue/purple */
+  --color-medium-bg: #1a1a2e; /* Used for body background */
+  --color-neon-blue: #00ffff; /* Cyan/Electric Blue */
+  --color-neon-purple: #ff00ff; /* Magenta/Fuchsia */
+  --color-text-light: #e0e0e0;
+  --transition-speed: 0.35s;
+  --color-cta-bg: linear-gradient(
+    90deg,
+    var(--color-neon-purple) 0%,
+    var(--color-neon-blue) 100%
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0; /* remove existing padding */
+  background-color: var(--color-medium-bg);
+  color: var(--color-text-light);
+  font-family: "Space Mono", monospace;
+  overflow-x: hidden;
+}
+/*
+        ---------------------------------------------------
+        2. Desktop Navbar Styling (Fixed)
+        ---------------------------------------------------
+        */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 80px;
+  background: var(--color-dark-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Stylized Placeholder for Logo Image */
+.logo-img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 10px;
+  object-fit: cover;
+  /* Placeholder styling */
+  /* background: var(--color-neon-blue);
+  box-shadow: 0 0 10px var(--color-neon-blue);
+  border: 2px solid var(--color-neon-purple); */
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-text-light);
+  text-shadow: 0 0 5px var(--color-neon-purple);
+}
+
+/* Main Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  margin: 0 10px;
+  transition: all var(--transition-speed);
+}
+
+.nav-link-group {
+  /* Ensures perfect vertical centering in the 80px high navbar */
+  display: flex;
+  align-items: center;
+  height: 80px;
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 5px;
+  transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+/* Neon Hover Effect on Links */
+.nav-item:hover .nav-link {
+  color: var(--color-neon-blue);
+  text-shadow: 0 0 8px var(--color-neon-blue);
+}
+
+/* Active/Hover Underline Indicator - Adjusted to be perfectly centered */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(
+    -50%,
+    0
+  ); /* Center horizontally relative to parent item */
+  bottom: 22px; /* Adjusted based on link group height (80px) and padding */
+  width: 0;
+  height: 3px;
+  background: var(--color-neon-purple);
+  transition: width var(--transition-speed) ease-out;
+}
+
+.nav-item:hover::after {
+  width: 80%;
+}
+
+/* Dropdown Toggle Button/Indicator */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  height: 30px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.dropdown-toggle svg {
+  /* Chevron Styling */
+  fill: var(--color-neon-purple);
+  transition: transform var(--transition-speed), fill var(--transition-speed);
+  display: block;
+  line-height: 0;
+}
+
+/* Desktop Hover Rotation */
+.nav-item:hover .dropdown-toggle svg {
+  transform: rotate(180deg);
+  fill: var(--color-neon-blue);
+}
+
+/*
+        ---------------------------------------------------
+        3. Dropdown Styling (Desktop Hover / Mobile Click)
+        ---------------------------------------------------
+        */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: rgba(18, 16, 25, 0.95);
+  border: 1px solid var(--color-neon-blue);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  z-index: 10;
+}
+
+/* Desktop Hover Reveal */
+.nav-item:hover .dropdown-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Mobile Click Reveal (Managed by JS) */
+.nav-item.open .dropdown-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.dropdown-content a {
+  color: var(--color-text-light);
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  transition: background var(--transition-speed), color var(--transition-speed),
+    padding-left var(--transition-speed);
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  color: var(--color-neon-blue);
+  padding-left: 25px;
+}
+
+/*
+        ---------------------------------------------------
+        4. CTA Button Styling (LOGIN)
+        ---------------------------------------------------
+        */
+.cta-button {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+  background: var(--color-cta-bg);
+  color: var(--color-dark-bg);
+
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+/* CTA Hover Animation: Lift and Shadow */
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.5);
+}
+
+/*
+        ---------------------------------------------------
+        5. Mobile Hamburger Icon (Custom Style)
+        ---------------------------------------------------
+        */
+/*
+---------------------------------------------------
+5. Mobile Hamburger Icon (Custom Style)
+---------------------------------------------------
+*/
+.hamburger {
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after {
+  display: block;
+  position: absolute;
+  /* Increased height for guaranteed visibility */
+  height: 4px; /* Slightly reduced to 4px for better aesthetics, but still bold */
+  width: 100%;
+  background: var(--color-neon-blue);
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  /* ENHANCEMENT: Clear glow */
+  box-shadow: 0 0 8px var(--color-neon-blue), 0 0 12px rgba(0, 255, 255, 0.5);
+  z-index: 10;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+/* Center span is now purely a container for pseudo-elements and animation anchor */
+.hamburger span {
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  box-shadow: none;
+  z-index: 10;
+}
+
+/* Adjusted Vertical Positioning for 4px height */
+.hamburger span::before {
+  content: "";
+  top: -12px; /* Positioned relative to the center (50%) of the 30px parent */
+}
+.hamburger span::after {
+  content: "";
+  top: 12px; /* Positioned relative to the center (50%) of the 30px parent */
+}
+
+/* Hamburger to X animation state - Ensure glow is applied to the purple cross */
+.navbar.nav-open .hamburger span::before {
+  top: 0;
+  transform: rotate(45deg);
+  background: var(--color-neon-purple);
+  box-shadow: 0 0 8px var(--color-neon-purple), 0 0 12px rgba(255, 0, 255, 0.5);
+}
+
+.navbar.nav-open .hamburger span::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background: var(--color-neon-purple);
+  box-shadow: 0 0 8px var(--color-neon-purple), 0 0 12px rgba(255, 0, 255, 0.5);
+}
+/*
+        ---------------------------------------------------
+        6. Mobile Menu Overlay (Center-Drop Style)
+        ---------------------------------------------------
+        */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(18, 16, 25, 0.98);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+
+  max-height: 0;
+  opacity: 0;
+  overflow-y: auto;
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.navbar.nav-open .mobile-menu-overlay {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* MOBILE ALIGNMENT FIX: Center the list itself */
+.mobile-nav-list {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures list items are centered */
+}
+
+/* Mobile Link Styling */
+.mobile-nav-item {
+  width: 90%;
+  max-width: 450px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Ensure the last item before the CTA button doesn't have a border, or the CTA itself */
+.mobile-nav-item:last-child:not(.mobile-cta) {
+  border-bottom: none;
+}
+
+.mobile-link-group {
+  /* Align menu text left, arrow right */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes content to edges */
+  padding: 15px 0;
+  width: 100%;
+}
+
+.mobile-nav-link {
+  text-decoration: none;
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  /* Adjust padding to ensure text starts near the left edge */
+  padding-left: 0;
+  padding-right: 10px;
+  text-align: left;
+  flex-grow: 1; /* Allow link to consume available space */
+  transition: color var(--transition-speed);
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-neon-blue);
+}
+
+/* Mobile Toggle Button - Ensure it's large and centered */
+.mobile-link-group .dropdown-toggle {
+  height: auto;
+  width: 40px;
+  padding: 0;
+  margin-left: 10px;
+}
+
+/* Make mobile chevrons bolder/larger (18px) */
+.mobile-link-group .dropdown-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Mobile Click Rotation */
+.mobile-nav-item.open .dropdown-toggle svg {
+  transform: rotate(180deg);
+  fill: var(--color-neon-purple);
+}
+
+.mobile-dropdown-content {
+  list-style: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, opacity 0.3s;
+  text-align: center;
+  width: 100%;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.mobile-nav-item.open .mobile-dropdown-content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.mobile-dropdown-content a {
+  display: block;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.mobile-dropdown-content a:hover {
+  color: var(--color-neon-purple);
+}
+
+/* Mobile CTA Button */
+.mobile-cta {
+  width: 90%;
+  max-width: 450px;
+  margin: 20px auto 40px auto;
+  border-bottom: none;
+}
+
+/*
+        ---------------------------------------------------
+        7. Media Queries (Mobile View)
+        ---------------------------------------------------
+        */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-links,
+  .cta-button {
+    display: none;
+  }
+  .navbar {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  /* Disable desktop hover effects on mobile */
+  .nav-item:hover .dropdown-content {
+    max-height: 0;
+    opacity: 0;
+  }
+  .nav-item:hover .dropdown-toggle svg {
+    transform: rotate(0deg);
+    fill: var(--color-neon-purple);
+  }
+}
+
+/*
+        ---------------------------------------------------
+        2. Decorative Background (Consistent with other pages)
+        ---------------------------------------------------
+        */
+.decorative-dots {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.05) 1px,
+    transparent 0
+  );
+  background-size: 30px 30px;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/*
+        ---------------------------------------------------
+        3. Header and Introduction
+        ---------------------------------------------------
+        */
+.team-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-title {
+  font-size: 3rem;
+  color: var(--color-neon-purple);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  padding: 90px 20px 50px 20px;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+/*
+        ---------------------------------------------------
+        4. Team Grid Layout (Desktop)
+        ---------------------------------------------------
+        */
+.team-grid {
+  display: grid;
+  /* FIX: Ensure 3 columns for desktop view */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+/*
+        ---------------------------------------------------
+        5. Team Card Styling & Animations
+        ---------------------------------------------------
+        */
+.team-card {
+  background: var(--color-dark-bg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 20px;
+
+  /* Initial state for individual card entrance */
+  opacity: 0;
+  transform: scale(0.9) rotateX(10deg);
+  animation: cardEntrance 0.8s ease-out forwards;
+
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+/* Staggered Card Entrance Animation (Updated for 9 members) */
+.team-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.team-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.team-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.team-card:nth-child(4) {
+  animation-delay: 0.5s;
+}
+.team-card:nth-child(5) {
+  animation-delay: 0.6s;
+}
+.team-card:nth-child(6) {
+  animation-delay: 0.7s;
+}
+.team-card:nth-child(7) {
+  animation-delay: 0.8s;
+}
+.team-card:nth-child(8) {
+  animation-delay: 0.9s;
+}
+.team-card:nth-child(9) {
+  animation-delay: 1s;
+}
+
+@keyframes cardEntrance {
+  to {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+  }
+}
+
+/* Hover Effect for Card: Lift and Neon Glow */
+.team-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 0, 255, 0.4);
+  border-color: var(--color-neon-blue);
+}
+
+/* Image Container and Styling */
+.member-photo-container {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--color-neon-blue);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  transition: transform var(--transition-speed);
+}
+
+.member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Placeholder styling */
+  background-color: #333;
+  transition: transform var(--transition-speed);
+}
+
+/* Image Hover: Scale/Tilt Effect */
+.team-card:hover .member-photo {
+  transform: scale(1.1) rotateZ(1deg);
+}
+
+.member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: 5px;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.member-role {
+  font-size: 0.9rem;
+  color: var(--color-neon-purple);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.member-bio {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* Social Icons - Unified Styling */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* Default Background: Aqua based on theme */
+  background-color: rgba(0, 255, 255, 0.1);
+  transition: background var(--transition-speed),
+    transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.social-link svg {
+  fill: var(--color-neon-blue);
+  width: 60%;
+  height: 60%;
+  transition: fill var(--transition-speed);
+}
+
+/* Social Icon Hover - Applied to ALL cards */
+.social-link:hover {
+  /* Hover Background: Neon Purple */
+  background-color: var(--color-neon-purple);
+  transform: scale(1.15);
+  /* Hover Glow: Neon Purple */
+  box-shadow: 0 0 10px var(--color-neon-purple);
+}
+
+.social-link:hover svg {
+  /* Hover Icon Fill: Dark Background (for contrast) */
+  fill: var(--color-dark-bg);
+}
+/*
+        ---------------------------------------------------
+        2. Main Footer Container & Desktop Grid Layout
+        ---------------------------------------------------
+        */
+.site-footer {
+  background-color: var(--color-dark-bg);
+  padding: 50px 40px 0 40px; /* Adjusted padding to accommodate new bottom section */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-light);
+  position: relative; /* Needed for potential future positioning or effects */
+}
+
+.footer-main-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr; /* Distribute space horizontally */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.footer-section {
+  padding: 10px 0;
+  opacity: 0; /* Initial state for fade-in animation */
+  animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+/* Apply delayed animation to sections */
+.footer-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.footer-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.footer-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.footer-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--color-neon-blue);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+/*
+        ---------------------------------------------------
+        3. Section 1: Logo & Branding
+        ---------------------------------------------------
+        */
+.logo-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: inherit; /* Ensure logo text inherits color if no specific color is set */
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 10px;
+  /* background: var(--color-neon-purple);
+  box-shadow: 0 0 10px var(--color-neon-purple);
+  border: 2px solid var(--color-neon-blue); */
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-text-light);
+  text-shadow: 0 0 5px var(--color-neon-blue);
+}
+
+.tagline {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/*
+        ---------------------------------------------------
+        4. Section 2: Quick Links
+        ---------------------------------------------------
+        */
+.quick-links {
+  list-style: none;
+}
+
+.quick-links a {
+  display: inline-block;
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: color var(--transition-speed), transform var(--transition-speed),
+    opacity var(--transition-speed);
+}
+
+/* Hover: Neon color change and slight slide right */
+.quick-links a:hover {
+  color: var(--color-neon-purple);
+  transform: translateX(5px);
+  opacity: 1;
+}
+
+/*
+        ---------------------------------------------------
+        5. Section 3: Company Address
+        ---------------------------------------------------
+        */
+.address-info p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+/*
+        ---------------------------------------------------
+        6. Section 4: Follow Us (Social Media Icons) - IMPROVED CLARITY
+        ---------------------------------------------------
+        */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-link {
+  /* Increased size for better visibility and touch target */
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform var(--transition-speed), filter var(--transition-speed),
+    box-shadow var(--transition-speed);
+  border-radius: 50%;
+  background-color: rgba(0, 255, 255, 0.08); /* Subtle blue background */
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); /* Default subtle glow */
+}
+
+.social-link svg {
+  /* Increased SVG size relative to parent link */
+  fill: var(--color-neon-blue);
+  width: 65%;
+  height: 65%;
+  transition: fill var(--transition-speed);
+}
+
+/* Social Icon Hover: Scale up and create a strong purple glow */
+.social-link:hover {
+  transform: scale(1.15); /* Less aggressive scale change */
+  filter: drop-shadow(
+    0 0 15px var(--color-neon-purple)
+  ); /* Stronger, defined glow */
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.6); /* More pronounced box shadow */
+  background-color: rgba(255, 0, 255, 0.15); /* Hover background shift */
+}
+
+.social-link:hover svg {
+  fill: var(--color-neon-purple);
+}
+
+/*
+        ---------------------------------------------------
+        7. Newsletter Subscription (Full Width)
+        ---------------------------------------------------
+        */
+.newsletter-section {
+  padding: 30px 40px;
+  background-color: rgba(0, 0, 0, 0.15); /* Slightly darker background */
+  margin-top: 20px;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: 20px auto 0 auto;
+}
+
+.newsletter-section .footer-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.email-input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  background: var(--color-input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+/* Input Focus Glow */
+.email-input:focus {
+  border-color: var(--color-neon-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+.subscribe-button {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  text-transform: uppercase;
+
+  /* Bold Gradient Background */
+  background: var(--color-cta-bg);
+  color: var(--color-dark-bg);
+
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+  z-index: 1;
+}
+
+/* Glass effect overlay for button hover */
+.subscribe-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    /* Light streak for glass effect */ transparent
+  );
+  transition: left 0.5s ease-out;
+  z-index: 2;
+}
+
+/* Button hover animation: subtle lift and glass swipe */
+.subscribe-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+}
+
+.subscribe-button:hover::before {
+  left: 100%; /* Slide across to the right */
+}
+
+/*
+        ---------------------------------------------------
+        8. Footer Bottom (Copyright)
+        ---------------------------------------------------
+        */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+  margin-top: 30px; /* Space from newsletter */
+  color: var(--color-text-light);
+}
+
+/*
+        ---------------------------------------------------
+        9. Mobile Responsiveness (Stacking & Centering)
+        ---------------------------------------------------
+        */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 30px 20px 0 20px; /* Adjusted padding for mobile */
+  }
+
+  .footer-main-content {
+    /* Stack all sections vertically */
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center; /* Center align text in all sections */
+  }
+
+  .footer-title {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  /* Center align links and icons */
+  .logo-group {
+    justify-content: center; /* Center logo on mobile */
+  }
+
+  .quick-links,
+  .social-icons {
+    display: flex;
+    flex-direction: column; /* Stack quick links vertically */
+    align-items: center; /* Center items in the flex container */
+    padding: 0;
+  }
+
+  .quick-links a {
+    padding: 8px 0; /* More padding for easier tapping */
+  }
+
+  .quick-links a:hover {
+    transform: translateX(0); /* Remove slide effect on mobile */
+  }
+
+  .address-info {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .social-icons {
+    flex-direction: row; /* Keep social icons horizontal on mobile */
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .social-link {
+    /* Increased size for better touch target on mobile */
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-link svg {
+    width: 70%;
+    height: 70%;
+  }
+
+  .newsletter-section {
+    padding: 20px;
+  }
+
+  .subscribe-form {
+    flex-direction: column; /* Stack input and button vertically */
+    gap: 15px;
+  }
+
+  .subscribe-button {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    margin-top: 20px; /* Adjust spacing on mobile */
+    padding: 15px 0;
+  }
+}
+@media (max-width: 650px) {
+  .site-footer {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px); /* expands footer edge-to-edge */
+  }
+}
+/*
+        ---------------------------------------------------
+        6. Mobile Responsiveness
+        ---------------------------------------------------
+        */
+@media (max-width: 650px) {
+  body {
+    padding: 40px 15px;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+  }
+
+  .team-grid {
+    /* Stacks cards vertically */
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .team-card {
+    padding: 25px 20px;
+  }
+
+  .member-photo-container {
+    width: 120px;
+    height: 120px;
+  }
+}

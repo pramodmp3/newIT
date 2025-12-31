@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly | Frequently Asked Questions</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./faq.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./files/logo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home2.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./product.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQs</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./career.html" class="nav-link-desktop">CAREERS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home2.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./product.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQs
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./career.html" class="nav-link-mobile">CAREERS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Main Content Wrapper -->
+    <main>
+      <div class="container">
+        <h1 class="animate-fade-in">STACKLY FAQ</h1>
+        <div class="separator animate-fade-in" data-delay="100"></div>
+
+        <section class="faq-list">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item animate-fade-in" data-delay="200">
+            <button class="faq-question" aria-expanded="false">
+              <span>What services does Stackly primarily offer?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                Stackly specializes in scalable cloud infrastructure, bespoke
+                software development (AI/ML integration), and comprehensive
+                cybersecurity auditing and implementation for large enterprises.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item animate-fade-in" data-delay="300">
+            <button class="faq-question" aria-expanded="false">
+              <span
+                >How does Stackly approach data security and compliance?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                We utilize a Zero Trust architecture model and maintain
+                compliance with industry standards including ISO 27001, SOC 2
+                Type II, and GDPR. Data security is built into every layer of
+                our solutions.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item animate-fade-in" data-delay="400">
+            <button class="faq-question" aria-expanded="false">
+              <span
+                >Can Stackly integrate with our existing legacy systems?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                Yes, our engineering teams are highly experienced in creating
+                robust APIs and middleware solutions specifically designed to
+                interface seamlessly with complex legacy and proprietary
+                systems.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item animate-fade-in" data-delay="500">
+            <button class="faq-question" aria-expanded="false">
+              <span
+                >What is the typical timeline for a custom software
+                project?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                Timelines vary based on scope, but a typical project follows a
+                4-stage process: Discovery (2-4 weeks), Design & Prototyping
+                (4-6 weeks), Development (12+ weeks), and Deployment & Support.
+                We use Agile methodologies for fast iteration.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item animate-fade-in" data-delay="600">
+            <button class="faq-question" aria-expanded="false">
+              <span>Where are Stackly's primary offices located?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                Stackly maintains global hubs in New York (Americas HQ), London
+                (European HQ), Singapore (APAC), and Dubai (Middle East). We
+                also offer flexible remote work options for many roles.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="faq-item animate-fade-in" data-delay="700">
+            <button class="faq-question" aria-expanded="false">
+              <span
+                >Does Stackly offer ongoing technical support after
+                deployment?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                Absolutely. We offer various tiered support packages, including
+                24/7 critical incident response, maintenance updates, and
+                continuous optimization services to ensure maximum uptime and
+                performance.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 7 -->
+          <div class="faq-item animate-fade-in" data-delay="800">
+            <button class="faq-question" aria-expanded="false">
+              <span
+                >What makes Stackly different from other IT consulting
+                firms?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                Our distinction lies in our deep specialization in both
+                AI-driven solutions and high-level cloud architecture, coupled
+                with our commitment to radical transparency and client-side
+                knowledge transfer. We don't just build, we empower.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 8 -->
+          <div class="faq-item animate-fade-in" data-delay="900">
+            <button class="faq-question" aria-expanded="false">
+              <span>How can I apply for a job or internship at Stackly?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <div class="faq-answer">
+                All current openings are listed on our Careers page. Simply find
+                the role that matches your skills and use the 'Apply Now' button
+                to submit your resume and cover letter directly to our
+                recruitment team.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="main-footer" id="mainFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- 1. Logo Section -->
+          <div class="footer-section footer-logo">
+            <img
+              src="./files/logo.webp"
+              alt="Stackly Company Logo Placeholder"
+            />
+            <p>
+              Architecting the future of secure, intelligent enterprise.
+              Engineering excellence since 2013.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home2.html">Home</a></li>
+              <li><a href="./about2.html">About Us</a></li>
+              <!-- <li><a href="#">Services</a></li> -->
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./career.html">Careers</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div class="footer-section company-address">
+            <h4>Global HQ</h4>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9993;</span>
+              info@stackly.com
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#9742;</span>
+              +1 (555) 123-STACK
+            </p>
+            <p>
+              <span style="font-family: Arial, sans-serif">&#127984;</span>
+              120 Broadway, Suite 300, New York, NY 10271
+            </p>
+          </div>
+
+          <!-- 5. Newsletter Subscription Form -->
+          <div class="footer-section newsletter-form">
+            <h4>Stay Ahead of the Curve</h4>
+            <form action="./404.html">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                id="newsletterEmail"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p
+              id="subscribe-status"
+              style="
+                font-size: 0.85rem;
+                margin-top: 10px;
+                color: var(--accent-light);
+              "
+            ></p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          &copy; 2025 Stackly Technologies. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. Intersection Observer for Fade-In Animations (Scroll Reveal) ---
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1 /* Trigger animation when 10% of element is visible */,
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.getAttribute("data-delay") || 0;
+
+              setTimeout(() => {
+                entry.target.classList.add("animated");
+                observer.unobserve(entry.target);
+              }, delay);
+            }
+          });
+        }, observerOptions);
+
+        // Apply scroll observer to all FAQ items
+        document.querySelectorAll(".animate-fade-in").forEach((el) => {
+          scrollObserver.observe(el);
+        });
+
+        // --- 2. FAQ Toggle Functionality (Expand/Collapse) ---
+
+        const faqQuestions = document.querySelectorAll(".faq-question");
+
+        faqQuestions.forEach((question) => {
+          question.addEventListener("click", () => {
+            const parentItem = question.closest(".faq-item");
+            const answerWrapper = parentItem.querySelector(
+              ".faq-answer-wrapper"
+            );
+
+            // Check if the current item is already open
+            const isCurrentlyOpen = parentItem.classList.contains("is-open");
+
+            // Close all open answers first (Accordion behavior)
+            document
+              .querySelectorAll(".faq-item.is-open")
+              .forEach((openItem) => {
+                if (openItem !== parentItem) {
+                  openItem.classList.remove("is-open");
+                  const openAnswerWrapper = openItem.querySelector(
+                    ".faq-answer-wrapper"
+                  );
+                  openAnswerWrapper.style.maxHeight = 0;
+                  openItem
+                    .querySelector(".faq-question")
+                    .setAttribute("aria-expanded", "false");
+                }
+              });
+
+            // Toggle the current item's state
+            if (!isCurrentlyOpen) {
+              // Open the item
+              parentItem.classList.add("is-open");
+              question.setAttribute("aria-expanded", "true");
+
+              // Set the max-height to the scroll height for the smooth transition
+              // This is a common pattern for animating height with max-height
+              answerWrapper.style.maxHeight = answerWrapper.scrollHeight + "px";
+            } else {
+              // Close the item
+              parentItem.classList.remove("is-open");
+              question.setAttribute("aria-expanded", "false");
+              answerWrapper.style.maxHeight = 0;
+            }
+          });
+
+          // Add hover effect without clicking (for visual styling)
+          question.addEventListener("mouseenter", () => {
+            question.closest(".faq-item").classList.add("is-hovering");
+          });
+          question.addEventListener("mouseleave", () => {
+            question.closest(".faq-item").classList.remove("is-hovering");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
